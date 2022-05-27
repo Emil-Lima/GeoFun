@@ -1,25 +1,80 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+
+// Imports related to Leaflet
+import { MapContainer, TileLayer, Circle, Marker, Popup, GeoJSON } from 'react-leaflet'
+
+const center = [51.505, -0.09]
+
+const polyline = [
+  [51.505, -0.09],
+  [51.51, -0.1],
+  [51.51, -0.12],
+]
+
+const multiPolyline = [
+  [
+    [51.5, -0.1],
+    [51.5, -0.12],
+    [51.52, -0.12],
+  ],
+  [
+    [51.5, -0.05],
+    [51.5, -0.06],
+    [51.52, -0.06],
+  ],
+]
+
+const polygon = [
+  [51.515, -0.09],
+  [51.52, -0.1],
+  [51.52, -0.12],
+]
+
+const multiPolygon = [
+  [
+    [51.51, -0.12],
+    [51.51, -0.13],
+    [51.53, -0.13],
+  ],
+  [
+    [51.51, -0.05],
+    [51.51, -0.07],
+    [51.53, -0.07],
+  ],
+]
+
+const rectangle = [
+  [51.49, -0.08],
+  [51.5, -0.06],
+]
+
+const alabama = [[[-87.359296,35.00118],[-85.606675,34.984749],[-85.431413,34.124869],[-85.184951,32.859696],[-85.069935,32.580372],[-84.960397,32.421541],[-85.004212,32.322956],[-84.889196,32.262709],[-85.058981,32.13674],[-85.053504,32.01077],[-85.141136,31.840985],[-85.042551,31.539753],[-85.113751,31.27686],[-85.004212,31.003013],[-85.497137,30.997536],[-87.600282,30.997536],[-87.633143,30.86609],[-87.408589,30.674397],[-87.446927,30.510088],[-87.37025,30.427934],[-87.518128,30.280057],[-87.655051,30.247195],[-87.90699,30.411504],[-87.934375,30.657966],[-88.011052,30.685351],[-88.10416,30.499135],[-88.137022,30.318396],[-88.394438,30.367688],[-88.471115,31.895754],[-88.241084,33.796253],[-88.098683,34.891641],[-88.202745,34.995703],[-87.359296,35.00118]]];
+
+const fillBlueOptions = { fillColor: 'blue' }
+const blackOptions = { color: 'black' }
+const limeOptions = { color: 'lime' }
+const purpleOptions = { color: 'purple' }
+const redOptions = { color: 'red' } 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <MapContainer center={[55.94694653126058, -3.201965195064799]} zoom={13} scrollWheelZoom={false}>
+      <TileLayer
+      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+      />
+      <Circle center={center} pathOptions={fillBlueOptions} radius={200} />
+
+      <Marker position={[55.94694653126058, -3.201965195064799]}>
+        <Popup>
+          Creating this thing <br></br> took me a while 🧐
+        </Popup>
+      </Marker>
+      <GeoJSON attribution="&copy; credits due..." data={{"type":"Feature","id":"01","properties":{"name":"Alabama","density":94.65},"geometry":{"type":"Polygon","coordinates":[[[-87.359296,35.00118],[-85.606675,34.984749],[-85.431413,34.124869],[-85.184951,32.859696],[-85.069935,32.580372],[-84.960397,32.421541],[-85.004212,32.322956],[-84.889196,32.262709],[-85.058981,32.13674],[-85.053504,32.01077],[-85.141136,31.840985],[-85.042551,31.539753],[-85.113751,31.27686],[-85.004212,31.003013],[-85.497137,30.997536],[-87.600282,30.997536],[-87.633143,30.86609],[-87.408589,30.674397],[-87.446927,30.510088],[-87.37025,30.427934],[-87.518128,30.280057],[-87.655051,30.247195],[-87.90699,30.411504],[-87.934375,30.657966],[-88.011052,30.685351],[-88.10416,30.499135],[-88.137022,30.318396],[-88.394438,30.367688],[-88.471115,31.895754],[-88.241084,33.796253],[-88.098683,34.891641],[-88.202745,34.995703],[-87.359296,35.00118]]]}}} />
+    </MapContainer>
+  )
 }
 
 export default App;
