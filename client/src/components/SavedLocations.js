@@ -5,15 +5,16 @@ const SavedLocations = ({savedCountries, updateSelectedCountry}) => {
 
 
   const savedCountryNodes = savedCountries.map((country) => {
-    
+
     const handleDetailClick = () => {
       updateSelectedCountry(country)
-    }    
+    }
+
     return (
-      <>
+      <div key={country.properties.sov_a3}>
         <h1>{country.properties.name}</h1>
         <button onClick = {handleDetailClick}>More Details</button>
-      </>
+      </div>
     )
   })
   
