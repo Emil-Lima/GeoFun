@@ -3,14 +3,23 @@ import CountryDetails from '../components/CountryDetails'
 import Header from '../components/Header'
 import SavedLocations from '../components/SavedLocations'
 import Map from '../components/Map'
+import styled from "styled-components"
+
+const Details = styled.section`
+display: flex;
+justify-content: center;
+gap: 10vw;
+`
 
 const AppContainer = ({countries, savedCountries, selectedCountry, addSavedCountry, updateSelectedCountry}) => {
   return (
     <div>
       <Header/>
       <Map countries = {countries} addSavedCountry = {addSavedCountry} />
-      <SavedLocations savedCountries = {savedCountries} updateSelectedCountry = {updateSelectedCountry}/>
-      {selectedCountry ? <CountryDetails countries = {countries} selectedCountry= {selectedCountry}/> : null }
+      <Details>
+        <SavedLocations savedCountries = {savedCountries} updateSelectedCountry = {updateSelectedCountry}/>
+        {selectedCountry ? <CountryDetails countries = {countries} selectedCountry= {selectedCountry}/> : null }
+      </Details>
     </div>
   )
 }
