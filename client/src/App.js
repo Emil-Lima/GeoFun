@@ -7,6 +7,7 @@ function App() {
 
   const [countries, setCountries] = useState([])
   const [savedCountries, setSavedCountries] = useState([])
+  const [selectedCountry, setSelectedCountry] = useState(null)
 
   useEffect(() => {
     fetchCountries()
@@ -32,9 +33,15 @@ function App() {
     setSavedCountries(temp)
   }
 
+  const updateSelectedCountry = (country) => {
+    setSelectedCountry(country)
+  }
+
+
+
   return (
     <>
-      {countries ? <AppContainer countries = {countries} savedCountries = {savedCountries} addSavedCountry={addSavedCountry}/> : null}
+      {countries ? <AppContainer countries = {countries} savedCountries = {savedCountries} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : null}
       
     </>
     
