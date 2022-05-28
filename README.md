@@ -2,6 +2,18 @@
 
 ### GeoFun is an educational app that helps children learning about geography.
 
+## Setup
+
+#### Note: This setup tutorial assumes that you already have installed a package manager like <a href="https://www.npmjs.com/">npm</a> and the version control system <a href="https://git-scm.com/">git</a>.
+
++ Open your terminal.
++ In your terminal, go to the folder where you want to save the app.
++ Run the command ```git clone git@github.com:J-Rozas/GeoFun.git```
++ Once the download has ended, run ```cd client```
++ Now, to install all the modules for the client run ```npm i```
++ Once the download is completed, run ```cd ../server```
++ Finally, to install the modules for the server run ```npm i```
+
 ## Tech stack
 ### Languages:
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
