@@ -6,6 +6,7 @@ import AppContainer from './containers/AppContainer';
 function App() {
 
   const [countries, setCountries] = useState([])
+  const [savedCountries, setSavedCountries] = useState([])
 
   useEffect(() => {
     fetchCountries()
@@ -19,9 +20,15 @@ function App() {
 }
 
 
+  const addSavedCountry = (country) => {
+    const temp = [... savedCountries]
+    temp.push(country)
+    setSavedCountries(temp)
+  }
+
   return (
     <>
-      {countries ? <AppContainer countries = {countries}/> : null}
+      {countries ? <AppContainer countries = {countries} savedCountries = {savedCountries} addSavedCountry={addSavedCountry}/> : null}
       
     </>
     
