@@ -19,7 +19,7 @@ const Map = ({countries, addSavedCountry}) => {
         europeData.features.map((country, index) => {
             let currentData = ""
 
-            const countryCode = country.properties.sov_a3
+            const countryCode = country.properties.iso_a3
 
             for (let cou of countries) {
               if (cou.cca3 == countryCode) {
