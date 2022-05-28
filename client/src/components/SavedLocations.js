@@ -1,9 +1,11 @@
 import React from 'react'
 
-const SavedLocations = () => {
+const SavedLocations = ({savedCountries}) => {
   return (
     <div>
       <h2>My saved locations</h2>
+
+      
     </div>
   )
 }

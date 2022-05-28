@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { MapContainer, TileLayer, Popup, GeoJSON } from 'react-leaflet'
 import europeData from "../data/europe-info.json"
 
-const Map = ({countries}) => {
+const Map = ({countries, addSavedCountry}) => {
   
 
   return (
@@ -27,12 +27,19 @@ const Map = ({countries}) => {
               }
             }
 
+            const handleClick = () => {
+              addSavedCountry(country)
+            }
+
 
             return (
             <GeoJSON attribution="&copy; credits due..." data={country} key={index}>
                 <Popup>
                   <h1>{country.properties.name}</h1>
                   <h2>{currentData.population}</h2>
+                  <button onClick = {handleClick}>
+                    + Save
+                  </button>
                 </Popup>
             </GeoJSON>)
 
