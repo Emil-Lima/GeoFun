@@ -16,12 +16,12 @@ function App() {
     fetch("https://restcountries.com/v3.1/region/europe")
     .then((res) => res.json())
     .then((countries) => setCountries(countries))
-    
 }
+
 
   return (
     <>
-      <AppContainer countries = {countries}/>
+      {countries ? <AppContainer countries = {countries}/> : null}
       
     </>
     
