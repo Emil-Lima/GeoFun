@@ -41,3 +41,10 @@
   height: 100vh;
   width: 100vw;
 }
+
+.MapContainer { 
+  height: 70vh;
+  width: 70vw;
+  margin: auto;
+  margin-top: 10vh;
+  }
