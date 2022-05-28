@@ -4,13 +4,13 @@ import Header from '../components/Header'
 import SavedLocations from '../components/SavedLocations'
 import Map from '../components/Map'
 
-const AppContainer = ({countries, savedCountries, addSavedCountry, updateSelectedCountry}) => {
+const AppContainer = ({countries, savedCountries, selectedCountry, addSavedCountry, updateSelectedCountry}) => {
   return (
     <div>
       <Header/>
       <Map countries = {countries} addSavedCountry = {addSavedCountry} />
       <SavedLocations savedCountries = {savedCountries} updateSelectedCountry = {updateSelectedCountry}/>
-      <CountryDetails countries = {countries}/>
+      {selectedCountry ? <CountryDetails countries = {countries} selectedCountry= {selectedCountry}/> : null }
     </div>
   )
 }

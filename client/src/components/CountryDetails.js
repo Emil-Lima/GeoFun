@@ -1,9 +1,11 @@
 import React from 'react'
 
-const CountryDetails = () => {
+const CountryDetails = ({selectedCountry, countries}) => {
+  console.log(selectedCountry)
+
   return (
     <div>
-      <p> Countries Details</p>
+      <h1>{selectedCountry.properties.name}</h1>
     </div>
   )
 }

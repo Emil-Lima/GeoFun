@@ -41,7 +41,7 @@ function App() {
 
   return (
     <>
-      {countries ? <AppContainer countries = {countries} savedCountries = {savedCountries} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : null}
+      {countries ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : null}
       
     </>
     
