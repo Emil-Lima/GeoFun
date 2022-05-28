@@ -22,7 +22,13 @@ function App() {
 
   const addSavedCountry = (country) => {
     const temp = [... savedCountries]
-    temp.push(country)
+    const isOnList = temp.some((cou) => {
+      return country.properties.sov_a3 == cou.properties.sov_a3
+    } )
+
+    if (!isOnList){
+      temp.push(country)
+    }
     setSavedCountries(temp)
   }
 
