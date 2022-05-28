@@ -3,8 +3,7 @@ import { MapContainer, TileLayer, Popup, GeoJSON } from 'react-leaflet'
 import europeData from "../data/europe-info.json"
 
 const Map = ({countries}) => {
-
-  const [currentData, setCurrentData] = useState(null);
+  
 
   return (
     <>
@@ -18,24 +17,23 @@ const Map = ({countries}) => {
       
       {
         europeData.features.map((country, index) => {
-            const currentData = null
-
-            console.log(country)
+            let currentData = ""
 
             const countryCode = country.properties.sov_a3
 
             for (let cou of countries) {
               if (cou.cca3 == countryCode) {
-                setCurrentData(cou)
+                currentData = cou
               }
             }
 
 
             return (
             <GeoJSON attribution="&copy; credits due..." data={country} key={index}>
-              <Popup>
-              {currentData.name.common}
-              </Popup>
+                <Popup>
+                  <h1>{country.properties.name}</h1>
+                  <h2>{currentData.population}</h2>
+                </Popup>
             </GeoJSON>)
 
         })
