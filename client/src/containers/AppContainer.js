@@ -4,13 +4,13 @@ import Header from '../components/Header'
 import SavedLocations from '../components/SavedLocations'
 import Map from '../components/Map'
 
-const AppContainer = () => {
+const AppContainer = ({countries}) => {
   return (
     <div>
       <Header/>
-      <Map/>
+      <Map countries = {countries}/>
       <SavedLocations/>
-      <CountryDetails/>
+      <CountryDetails countries = {countries}/>
     </div>
   )
 }

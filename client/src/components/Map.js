@@ -1,8 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { MapContainer, TileLayer, Popup, GeoJSON } from 'react-leaflet'
 import europeData from "../data/europe-info.json"
 
-const Map = () => {
+const Map = ({countries}) => {
+
+  const [currentData, setCurrentData] = useState(null);
+
   return (
     <>
       <h1>Map testing</h1>
@@ -15,11 +18,23 @@ const Map = () => {
       
       {
         europeData.features.map((country, index) => {
+            const currentData = null
+
+            console.log(country)
+
+            const countryCode = country.properties.sov_a3
+
+            for (let cou of countries) {
+              if (cou.cca3 == countryCode) {
+                setCurrentData(cou)
+              }
+            }
+
 
             return (
             <GeoJSON attribution="&copy; credits due..." data={country} key={index}>
               <Popup>
-                <h3>{country.properties.name}</h3>
+              {currentData.name.common}
               </Popup>
             </GeoJSON>)
 
