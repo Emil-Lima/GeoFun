@@ -1,4 +1,4 @@
-use GeoFun;
+use geofun;
 db.dropDatabase();
 
 db.users.insertMany ([
