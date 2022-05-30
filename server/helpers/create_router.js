@@ -5,12 +5,21 @@ const appRouter = function (collection) {
 
     const router = express.Router();
 
+    // Get all users
     router.get('/', (request, response) => {
         collection.find()
             .toArray()
             .then(documents => response.json(documents))
     });
 
+    // Get one user (by id)
+    router.get('/:id', (request, response) => {
+        const id = request.params.id
+        collection.findOne({_id:ObjectID(id)})
+                  .then(documents => response.json(documents))
+    })
+
+    // Post one user
     router.post('/', (request, response) => {
         const newUser = request.body;
         collection.insertOne(newUser)
@@ -19,10 +28,11 @@ const appRouter = function (collection) {
                   })
     })
 
+    // Patch one user (add country to savedCountries for a given user)
     router.patch ('/:id', (request, response) => {
         const id = request.params.id
-        const newBody = request.body.savedCountries;
-        collection.updateOne({_id:ObjectID(id)}, {$set:{newBody}})
+        const savedCountries = request.body.savedCountries;
+        collection.updateOne({_id:ObjectID(id)}, {$set:{savedCountries}})
                   .then(documents => response.json(documents))
 
     })
