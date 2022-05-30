@@ -7,8 +7,6 @@ const Map = ({countries, addSavedCountry}) => {
 
   return (
     <>
-      <h1>Map testing</h1>
-
       <MapContainer center={[52.015670, 18.635115]} zoom={4} scrollWheelZoom={false} className="MapContainer" >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

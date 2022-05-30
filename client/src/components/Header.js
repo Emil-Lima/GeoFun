@@ -7,9 +7,10 @@ const NavContainer = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left: 1vw;
-  padding-right: 1vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
   padding-top: 1vh;
+  padding-bottom: 1vh;
   position: sticky;
   top: 0;
   background-color: white;
