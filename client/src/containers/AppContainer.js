@@ -11,13 +11,13 @@ justify-content: center;
 gap: 10vw;
 `
 
-const AppContainer = ({countries, savedCountries, selectedCountry, addSavedCountry, updateSelectedCountry, profile}) => {
+const AppContainer = ({countries, savedCountries, savedCountryObjects, selectedCountry, addSavedCountry, updateSelectedCountry, fetchCountryObjects, profile}) => {
   return (
     <div>
       <Header profile = {profile}/>
       <Map countries = {countries} addSavedCountry = {addSavedCountry} />
       <Details>
-        <SavedLocations savedCountries = {savedCountries} updateSelectedCountry = {updateSelectedCountry} profile = {profile}/>
+        <SavedLocations savedCountries = {savedCountries} savedCountryObjects = {savedCountryObjects} updateSelectedCountry = {updateSelectedCountry} fetchCountryObjects = {fetchCountryObjects} profile = {profile}/>
         {selectedCountry ? <CountryDetails countries = {countries} selectedCountry= {selectedCountry}/> : null }
       </Details>
     </div>

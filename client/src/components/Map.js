@@ -26,7 +26,7 @@ const Map = ({countries, addSavedCountry}) => {
             }
 
             const handleClick = () => {
-              addSavedCountry(country)
+              addSavedCountry(currentData.cca3)
             }
 
 
