@@ -73,11 +73,19 @@ function App() {
     setSelectedCountry(country)
   }
 
+  const addProfile = (profile) => {
+    const temp = [... allProfiles]
+    temp.push(profile)
+
+    setAllProfiles(temp)
+    
+  }
+
 
 
   return (
     <>
-      {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : <ProfileContainer profile = {profile} allProfiles = {allProfiles} setProfile={setProfile}/>}
+      {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : <ProfileContainer profile = {profile} allProfiles = {allProfiles} setProfile={setProfile} addProfile = {addProfile}/>}
       
     </>
     
