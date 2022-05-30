@@ -11,9 +11,17 @@ const appRouter = function (collection) {
             .then(documents => response.json(documents))
     });
 
-    return router;
+    router.post('/', (request, response) => {
+        const newUser = request.body;
+        collection.insertOne(newUser)
+                  .then(result => {
+                      response.json(result.ops[0])
+                  })
+    })
 
+    return router;
 };
+
 
 module.exports = appRouter;
 
