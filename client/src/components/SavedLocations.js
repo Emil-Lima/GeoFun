@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SavedLocations = ({savedCountries, updateSelectedCountry}) => {
+const SavedLocations = ({savedCountries, updateSelectedCountry, profile}) => {
   
-
+// When refactoring from savedCountries being objects into storing ids (cca3 from the api) and use this to render the CountryDetails component
 
   const savedCountryNodes = savedCountries.map((country) => {
 
@@ -20,7 +20,7 @@ const SavedLocations = ({savedCountries, updateSelectedCountry}) => {
   
   return (
     <div>
-      <h2>My saved locations</h2>
+      <h2>{profile.name}'s saved locations</h2>
       {savedCountryNodes}
 
       
