@@ -9,7 +9,7 @@ const SavedLocations = ({savedCountries, updateSelectedCountry, profile}) => {
     const handleDetailClick = () => {
       updateSelectedCountry(country)
     }
-
+    // test
     // if refactored for savedcountries to be IDs, fetch happens here using the id endpoint
 
     return (
