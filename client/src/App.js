@@ -18,6 +18,7 @@ function App() {
   const [profile, setProfile] = useState(null)
   const [allProfiles, setAllProfiles] = useState(
     [{ 
+      _id: 1,
       name: "Matt",
       age: 10,
       avatar: monster_1,
@@ -25,18 +26,21 @@ function App() {
     },
 
     { 
+      _id: 2,
       name: "Jazz",
       age: 9,
       avatar: monster_2,
       saved_countries: []  
     },
     { 
+      _id: 3,
       name: "Emilio",
       age: 11,
       avatar: monster_3,
       saved_countries: []  
     },
     { 
+      _id: 4,
       name: "Derek",
       age: 8,
       avatar: monster_4,
@@ -81,11 +85,15 @@ function App() {
     
   }
 
+  const selectProfile = (prof) => {
+    setProfile(prof)
+  }
+
 
 
   return (
     <>
-      {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : <ProfileContainer profile = {profile} allProfiles = {allProfiles} setProfile={setProfile} addProfile = {addProfile}/>}
+      {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry}/> : <ProfileContainer allProfiles = {allProfiles} addProfile = {addProfile} selectProfile = {selectProfile}/>}
       
     </>
     

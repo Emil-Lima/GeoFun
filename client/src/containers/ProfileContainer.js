@@ -28,7 +28,7 @@ const AvatarSelect = styled.div`
 
 
 
-const ProfileContainer = ({ allProfiles, addProfile }) => {
+const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
 
     const [name, setName] = useState("")
     const [age, setAge] = useState(0)
@@ -59,7 +59,7 @@ const ProfileContainer = ({ allProfiles, addProfile }) => {
 
     
     const profileNodes = allProfiles.map((pro, index) => {
-        return <Profile profile={pro} />
+        return <Profile profile={pro} selectProfile = {selectProfile}/>
     })
 
 
