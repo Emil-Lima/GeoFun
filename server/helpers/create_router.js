@@ -19,6 +19,14 @@ const appRouter = function (collection) {
                   })
     })
 
+    router.patch ('/:id', (request, response) => {
+        const id = request.params.id
+        const newBody = request.body.savedCountries;
+        collection.updateOne({_id:ObjectID(id)}, {$set:{newBody}})
+                  .then(documents => response.json(documents))
+
+    })
+
     return router;
 };
 
