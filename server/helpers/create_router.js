@@ -31,8 +31,8 @@ const appRouter = function (collection) {
     // Patch one user (add country to savedCountries for a given user)
     router.patch ('/:id', (request, response) => {
         const id = request.params.id
-        const newBody = request.body.savedCountries;
-        collection.updateOne({_id:ObjectID(id)}, {$set:{newBody}})
+        const savedCountries = request.body.savedCountries;
+        collection.updateOne({_id:ObjectID(id)}, {$set:{savedCountries}})
                   .then(documents => response.json(documents))
 
     })
