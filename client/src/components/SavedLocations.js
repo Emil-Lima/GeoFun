@@ -10,6 +10,8 @@ const SavedLocations = ({savedCountries, updateSelectedCountry, profile}) => {
       updateSelectedCountry(country)
     }
 
+    // if refactored for savedcountries to be IDs, fetch happens here using the id endpoint
+
     return (
       <div key={country.properties.sov_a3}>
         <h1>{country.properties.name}</h1>
