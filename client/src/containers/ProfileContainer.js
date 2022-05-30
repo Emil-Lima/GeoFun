@@ -59,7 +59,7 @@ const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
 
     
     const profileNodes = allProfiles.map((pro, index) => {
-        return <Profile profile={pro} selectProfile = {selectProfile}/>
+        return <Profile profile={pro} selectProfile = {selectProfile} key={index}/>
     })
 
 
