@@ -6,25 +6,40 @@ const SelectCountry = () => {
 
   const [mysteryCountry, setMysteryCountry] = useState(null);
   const [userSelection, setUserSelection] = useState(null);
+  const [isCorrectAnswer, setIsCorrectAnswer] = useState(null);
   const listOfCountries = [];
 
   const playGame = () => {
     const newMysteryCountry = listOfCountries[Math.floor(Math.random()*listOfCountries.length)];
-    console.log(mysteryCountry);
     setMysteryCountry(newMysteryCountry);
-
-    if (userSelection != null) {
-      setUserSelection(null);
-    }
+    setUserSelection(null);
+    setIsCorrectAnswer(null);
   }
 
   const getUserChoice = (country) => {
     setUserSelection(country.target.options.value)
+
+    const userChoice = country.target.options.value;
+
+    checkIfCorrect(userChoice);
+
+
   }
 
-  // const checkIfCorrect = (country) => {
-    
-  // }
+  const checkIfCorrect = (userChoice) => {
+    if (mysteryCountry === null) {
+      console.log("Mystery country is empty");
+      setUserSelection(null);
+    } else {
+      console.log("Mystery country is",mysteryCountry);
+      if (userChoice === mysteryCountry) {
+        setIsCorrectAnswer(true);
+      } else {
+        setIsCorrectAnswer(false);
+      }
+      
+    }
+  }
 
   return (
     <div>
@@ -41,17 +56,13 @@ const SelectCountry = () => {
           
           return (
             <GeoJSON attribution="&copy; credits due..." data={country} key={index} value={country.properties.name} eventHandlers={{click: getUserChoice}}>
-              {/* <Popup>
-                <h1>{country.properties.name}</h1>
-              </Popup> */}
-            </GeoJSON>)
-            
+            </GeoJSON>)       
         })
       }
     </MapContainer>
     <button onClick={playGame}>Play game</button>
     {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
-    {userSelection != null && userSelection == mysteryCountry ? <p>Yes, it is {userSelection}</p> : <p>You are wrong</p>}
+    {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>Correct, you have found {mysteryCountry}!</p> : <p>Nope, that is {userSelection}</p>}
     </div>
   )
 }
