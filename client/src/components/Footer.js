@@ -3,10 +3,12 @@ import styled from "styled-components";
 import github_logo from "../assets/github_logo.png"
 
 const DevsContainer = styled.footer`
-  background-color: red;
   height: 15vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: white;
+  box-shadow: 0px 5px 10px rgb(140 140 140 / 79%);
+  margin-top: 1%;
 `
 
 const Logo = styled.img`
@@ -19,25 +21,27 @@ const Logo = styled.img`
 const Link = styled.a`
   display: block;
   text-align: center;
+  text-decoration: none;
+  color: black;
 `
 
 const Footer = () => {
   return (
     <DevsContainer>
       <div>
-        <Logo src={github_logo}/>
+        <a href="https://github.com/mattnorris1990" target="_blank"><Logo src={github_logo}/></a>
         <Link href="https://github.com/mattnorris1990" target="_blank">Matt</Link>
       </div>
       <div>
-        <Logo src={github_logo}/>
+        <a href="https://github.com/JazzRose" target="_blank"><Logo src={github_logo}/></a>
         <Link href="https://github.com/JazzRose" target="_blank">Jazz</Link>
       </div>
       <div>
-        <Logo src={github_logo}/>
+        <a href="https://github.com/drleafgreen88" target="_blank"><Logo src={github_logo}/></a>
         <Link href="https://github.com/drleafgreen88" target="_blank">Derek</Link>
       </div>
       <div>
-        <Logo src={github_logo}/>
+        <a href="https://github.com/J-Rozas" target="_blank"><Logo src={github_logo}/></a>
         <Link href="https://github.com/J-Rozas" target="_blank">Emilio</Link>
       </div>
     </DevsContainer>
