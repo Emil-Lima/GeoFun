@@ -4,11 +4,21 @@ import github_logo from "../assets/github_logo.png"
 
 const DevsContainer = styled.footer`
   background-color: red;
-  height: 10vh;
+  height: 15vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `
 
 const Logo = styled.img`
-  width: 10vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 6vw;
+`
+
+const Link = styled.a`
+  display: block;
+  text-align: center;
 `
 
 const Footer = () => {
@@ -16,19 +26,19 @@ const Footer = () => {
     <DevsContainer>
       <div>
         <Logo src={github_logo}/>
-        <a href="https://github.com/mattnorris1990">Matt</a>
+        <Link href="https://github.com/mattnorris1990">Matt</Link>
       </div>
       <div>
         <Logo src={github_logo}/>
-        <a href="https://github.com/JazzRose">Jazz</a>
+        <Link href="https://github.com/JazzRose">Jazz</Link>
       </div>
       <div>
         <Logo src={github_logo}/>
-        <a href="https://github.com/drleafgreen88">Derek</a>
+        <Link href="https://github.com/drleafgreen88">Derek</Link>
       </div>
       <div>
         <Logo src={github_logo}/>
-        <a href="https://github.com/J-Rozas">Emilio</a>
+        <Link href="https://github.com/J-Rozas">Emilio</Link>
       </div>
     </DevsContainer>
   )
