@@ -1,7 +1,44 @@
 import React, {useEffect,useState} from 'react'
 import Header from '../components/Header'
+import styled from 'styled-components';
 
-const QuizContainer = () => {
+
+const Quiz = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    `
+
+const Question = styled.div`
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:40px;
+    margin-top:20px;
+    `
+
+
+const Button = styled.button`
+
+width:400px;
+font-size:40px;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+margin:10px;
+background-color: #66124e;
+color:white;
+border:none;
+    &:hover{
+        text-decoration:underline;
+        transform:translateY(4px);
+        transition-duration: 0.5s;
+    }
+
+
+`
+const ButtonFlex = styled.div`
+display: flex;
+flex-direction: column;
+`
+const QuizContainer = ({profile}) => {
 
     const questions = [{
         questionText: 'What is the capital of France?',
@@ -59,13 +96,16 @@ const QuizContainer = () => {
   return (
 
     <>
-    <h1>{questions[question].questionText}</h1>
+    <Header profile = {profile}/>
+    <Quiz>
+    <Question>{questions[question].questionText}</Question>
     <h2> {score} </h2>
-    <div>
+    <ButtonFlex>
 	{questions[question].answerOptions.map((answerOption, index) => (
-		<button onClick = {checkAnswer} value = {answerOption.isCorrect}>{answerOption.answer}</button>
+		<Button onClick = {checkAnswer} value = {answerOption.isCorrect}>{answerOption.answer}</Button>
 	))}
-    </div>
+    </ButtonFlex>
+    </Quiz>
     </>
   )
     }
