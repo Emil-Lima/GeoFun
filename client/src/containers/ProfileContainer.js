@@ -7,7 +7,7 @@ import monster_3 from "../assets/monster_3.png"
 import monster_4 from "../assets/monster_4.png"
 import monster_5 from "../assets/monster_5.png"
 import monster_6 from "../assets/monster_6.png"
-import Footer from "../components/Footer"
+
 
 const Avatars = styled.div`
 display: flex;
