@@ -37,6 +37,9 @@
 ### APIs:
 <a href="https://restcountries.com/">REST Countries</a>
 
+### Other resources:
+<a href="https://developers.google.com/chart">Google Charts</a>
+
 Developed by:
 
 <div style="margin-top: 5vh">
