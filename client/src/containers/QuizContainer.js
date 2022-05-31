@@ -29,14 +29,15 @@ border:none;
     &:hover{
         text-decoration:underline;
         transform:translateY(4px);
-        transition-duration: 0.5s;
+        transition-duration: 0.2s;
     }
-
-
 `
+
 const ButtonFlex = styled.div`
 display: flex;
 flex-direction: column;
+border:3px solid grey;
+padding:30px;
 `
 const QuizContainer = ({profile}) => {
 
@@ -91,6 +92,7 @@ const QuizContainer = ({profile}) => {
         if (next< questions.length) {
             setQuestion(next)}
 
+
         }
 
   return (
@@ -99,7 +101,7 @@ const QuizContainer = ({profile}) => {
     <Header profile = {profile}/>
     <Quiz>
     <Question>{questions[question].questionText}</Question>
-    <h2> {score} </h2>
+    <h2> {score}/{questions.length} </h2>
     <ButtonFlex>
 	{questions[question].answerOptions.map((answerOption, index) => (
 		<Button onClick = {checkAnswer} value = {answerOption.isCorrect}>{answerOption.answer}</Button>
