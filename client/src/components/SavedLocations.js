@@ -2,7 +2,6 @@ import React from 'react'
 
 const SavedLocations = ({ savedCountries, savedCountryObjects, updateSelectedCountry, fetchCountryObjects, profile }) => {
 
-  // When refactoring from savedCountries being objects into storing ids (cca3 from the api) and use this to render the CountryDetails component
   
   const savedCountryNodes = savedCountryObjects.map((country) => {
 
