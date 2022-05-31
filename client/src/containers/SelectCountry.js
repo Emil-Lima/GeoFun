@@ -43,6 +43,7 @@ const SelectCountry = () => {
 
   return (
     <div>
+    <h2>Guess the country!</h2>
     <MapContainer center={[52.015670, 18.635115]} zoom={4} scrollWheelZoom={false} className="MapContainer" >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
