@@ -19,7 +19,6 @@ const Logo = styled.img`
 const Link = styled.a`
   display: block;
   text-align: center;
-  target: _blank;
 `
 
 const Footer = () => {
