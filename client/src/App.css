@@ -47,8 +47,8 @@
   width: 70vw;
   margin: auto;
   margin-top: 10vh;
-  border-radius: 30px;
-  border: 10px solid #228573 ;
+  border-radius: 40px;
+  border: 20px solid #7448d0 ;
   }
 
 
@@ -71,8 +71,16 @@
 }
 
 .population-graph {
-  height: 70vh;
   width:40vw;
+  height: 65vh;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-image: url('./assets/bg.png');
+  background-repeat: no-repeat;
+  background-size:100vw;
+  background-position: center;
+  
 }

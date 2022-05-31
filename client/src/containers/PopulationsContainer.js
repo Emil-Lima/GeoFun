@@ -4,17 +4,19 @@ import { Chart } from "react-google-charts";
 import styled from "styled-components"
 import europeInfo from "../data/europe-info.json"
 
-const ChartContainer = styled.section`
+const ChartContainer = styled.div`
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    ${'' /* border-radius: 40px;
+    border: 20px solid #7448d0;  */}
 `
+
 
 const PopulationsContainer = ({ savedCountryObjects, profile }) => {
 
 
-    const [currentData, setCurrentData] = useState(savedCountryObjects)
-    const [whichData, setWhichData] = useState("savedCountryObjects")
+    const [currentData, setCurrentData] = useState(europeInfo)
+    const [whichData, setWhichData] = useState("europeInfo")
 
     const popChartData = (countryObjects) => {
 
@@ -23,13 +25,13 @@ const PopulationsContainer = ({ savedCountryObjects, profile }) => {
         if (whichData == "savedCountryObjects") {
             countryObjects.map((country) => {
 
-                data.push([country.name.common, parseInt(country.population), '#4BC0AE'])
+                data.push([country.name.common, parseInt(country.population), '#7448d0'])
             })
         }
         else if (whichData == "europeInfo") {
             countryObjects.features.map((country) => {
 
-                data.push([country.properties.name, country.properties.pop_est, '#4BC0AE'])
+                data.push([country.properties.name, country.properties.pop_est, '#7448d0'])
             })
         }
 
@@ -52,14 +54,14 @@ const PopulationsContainer = ({ savedCountryObjects, profile }) => {
 
                 data.push([country.name.common, popPercent])
 
-                
+
             })
             const dataTotal = data.reduce((partialSum, a) => partialSum + a, 0)
-                const remainderPop = 746400000 - parseInt(dataTotal)
+            const remainderPop = 746400000 - parseInt(dataTotal)
             data.push(['other', remainderPop])
-                data.unshift(["Country", "Population"])
+            data.unshift(["Country", "Population"])
 
-                return data
+            return data
         }
         else if (whichData == "europeInfo") {
             countryObjects.features.map((country) => {
@@ -77,12 +79,14 @@ const PopulationsContainer = ({ savedCountryObjects, profile }) => {
 
     const barOptions = {
         title: "Country Populations",
-        legend: { position: "none" }
+        legend: { position: "none" },
+        backgroundColor: { fill:'transparent' }
     }
 
     const pieOptions = {
         title: "Country Populations as Part of Europe's Total Population",
-        legend: { position: "none" }
+        legend: { position: "none" },
+        backgroundColor: { fill:'transparent' }
     }
 
     const handleSavedClick = () => {
@@ -103,24 +107,21 @@ const PopulationsContainer = ({ savedCountryObjects, profile }) => {
             <button value={savedCountryObjects} onClick={handleSavedClick}>Saved Countries</button>
             <button value={europeInfo} onClick={handleAllClick}>All Countries</button>
             <ChartContainer>
+                    {savedCountryObjects ? <Chart
+                        chartType="BarChart"
+                        data={popChartData(currentData)}
+                        className="population-graph"
+                        options={barOptions}
+                    />
+                        : null}
 
-                {savedCountryObjects ? <Chart
-                    chartType="BarChart"
-                    data={popChartData(currentData)}
-                    className="population-graph"
-                    options={barOptions}
-                />
-                    : null}
-
-                {savedCountryObjects ? <Chart
-                    chartType="PieChart"
-                    data={pieChartData(currentData)}
-                    className="population-graph"
-                    options={pieOptions}
-                />
-                    : null}
-
-
+                    {savedCountryObjects ? <Chart
+                        chartType="PieChart"
+                        data={pieChartData(currentData)}
+                        className="population-graph"
+                        options={pieOptions}
+                    />
+                        : null}
 
             </ChartContainer>
         </>
