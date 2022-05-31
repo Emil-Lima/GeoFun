@@ -1,10 +1,28 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div>
-      <h2>This is the nav</h2>
-    </div>
+    <>
+       <nav>
+          <ul>
+            <li>
+              <Link to="/">Map</Link>
+            </li>
+            <li>
+              <Link to="/populations">Populations</Link>
+            </li>
+            <li>
+              <Link to="/quiz">Quiz</Link>
+            </li>
+          </ul>
+        </nav>
+    </>
   )
 }
 
