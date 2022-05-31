@@ -5,6 +5,12 @@ import ProfileContainer from './containers/ProfileContainer';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import { getUsers, postUser, patchUser } from './services/GeoFunServices';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
 
 const Wrapper = styled.body`
   display: flex;
@@ -55,13 +61,13 @@ function App() {
     if (!isOnList) {
       temp.push(id)
     }
-    
+
     setSavedCountries(temp)
     fetchCountryObjects(temp)
 
     if (profile) {
       const tempProfile =
-      {...profile, savedCountries: temp}
+        { ...profile, savedCountries: temp }
 
       setProfile(tempProfile)
       patchUser(tempProfile)
@@ -86,11 +92,11 @@ function App() {
 
   const addProfile = (profile) => {
     postUser(profile)
-    .then(profileWithID => {
-      const temp = [...allProfiles]
-      temp.push(profileWithID)
-      setAllProfiles(temp) 
-    })
+      .then(profileWithID => {
+        const temp = [...allProfiles]
+        temp.push(profileWithID)
+        setAllProfiles(temp)
+      })
 
 
   }
@@ -103,7 +109,27 @@ function App() {
 
   return (
     <Wrapper>
-      {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry} fetchCountryObjects = {fetchCountryObjects} profile = {profile} savedCountryObjects = {savedCountryObjects}/> : <ProfileContainer allProfiles = {allProfiles} addProfile = {addProfile} selectProfile = {selectProfile}/>}
+      <Router>
+        <div>
+
+
+          <Routes>
+            <Route path="/" element=
+
+              {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />}
+            />
+            <Route path="/populations" element={
+              <h3>This is where the charts go</h3>
+            } />
+
+            <Route path="/quiz" element={
+              <h3>this is where the quiz goes</h3>
+            } />
+
+          </Routes>
+        </div>
+      </Router>
+
       <Footer></Footer>
     </Wrapper>
   )
