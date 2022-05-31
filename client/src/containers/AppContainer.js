@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import SavedLocations from '../components/SavedLocations'
 import Map from '../components/Map'
 import styled from "styled-components"
+import QuizContainer from './QuizContainer'
 import Footer from '../components/Footer'
 
 const Details = styled.section`
@@ -21,6 +22,7 @@ const AppContainer = ({countries, savedCountries, savedCountryObjects, selectedC
         <SavedLocations savedCountries = {savedCountries} savedCountryObjects = {savedCountryObjects} updateSelectedCountry = {updateSelectedCountry} fetchCountryObjects = {fetchCountryObjects} profile = {profile}/>
         {selectedCountry ? <CountryDetails countries = {countries} selectedCountry= {selectedCountry}/> : null }
       </Details>
+      <QuizContainer/>
     </div>
   )
 }
