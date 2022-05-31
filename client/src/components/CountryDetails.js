@@ -1,27 +1,22 @@
 import React from 'react'
 
 const CountryDetails = ({selectedCountry, countries}) => {
-  
-  const countryData = countries.filter((cou) => {
-    return selectedCountry.properties.iso_a3 == cou.cca3
-  })[0]
-  
-  const countryCode = countryData.cca3
 
   
-  const countryLanguages = Object.values(countryData.languages)
+  const countryLanguages = Object.values(selectedCountry.languages)
   const languageList = countryLanguages.toString()
+  // const countryCode = selectedCountry.languages[0].toString()
 
 
   return (
     <div>
-      <h1>{countryData.name.common}</h1>
-      {/* <h2>Native Name: {countryData[0].name.nativeName[countryCode.toLowerCase()].common}</h2>  <<<< THIS DOESNT WORK BECAUSE THE CCA3 DOESNT ALWAYS MATCH */}
-      <img src={countryData.flags.png} />
-      <p>Capital: {countryData.capital}</p>
-      <p>Population: {countryData.population}</p>
-      {countryData.landlocked == true ? <p>Landlocked</p> : <p>Coastal</p>}
-      <p>People in {countryData.name.common} drive on the {countryData.car.side} side of the road </p>
+      <h1>{selectedCountry.name.common}</h1>
+      {/* <h2>Native Name: {selectedCountry.name.nativeName[countryCode].common}</h2>    <<<< THIS DOESNT WORK BECAUSE THE CCA3 DOESNT ALWAYS MATCH */}
+      <img src={selectedCountry.flags.png} />
+      <p>Capital: {selectedCountry.capital}</p>
+      <p>Population: {selectedCountry.population}</p>
+      {selectedCountry.landlocked == true ? <p>Landlocked</p> : <p>Coastal</p>}
+      <p>People in {selectedCountry.name.common} drive on the {selectedCountry.car.side} side of the road </p>
       <p>National Languages: {languageList}</p>
     </div>
   )

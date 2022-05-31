@@ -19,13 +19,12 @@ const Profile = ({profile, selectProfile}) => {
         selectProfile(profile)
     }
 
+
     return (
-        <>
         <ProfileContainer>
-            <img src={profile.avatar} width="200" onClick = {handleProfileSelect}/>
+            <img src={`../img/${profile.avatar}.png`} width="200" onClick = {handleProfileSelect}/>
             <h3>{profile.name}</h3>
         </ProfileContainer>
-        </>
     )
 }
 

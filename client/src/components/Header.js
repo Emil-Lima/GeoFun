@@ -42,7 +42,7 @@ const Header = ({ profile }) => {
 
       <ProfileInfo>
         <h2>Welcome {profile.name}!</h2>
-        <img src={profile.avatar} height="75" />
+        <img src={`../img/${profile.avatar}.png`} height="75" />
       </ProfileInfo>
     </NavContainer>
   )
