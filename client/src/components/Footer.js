@@ -19,6 +19,7 @@ const Logo = styled.img`
 const Link = styled.a`
   display: block;
   text-align: center;
+  target: _blank;
 `
 
 const Footer = () => {
@@ -26,19 +27,19 @@ const Footer = () => {
     <DevsContainer>
       <div>
         <Logo src={github_logo}/>
-        <Link href="https://github.com/mattnorris1990">Matt</Link>
+        <Link href="https://github.com/mattnorris1990" target="_blank">Matt</Link>
       </div>
       <div>
         <Logo src={github_logo}/>
-        <Link href="https://github.com/JazzRose">Jazz</Link>
+        <Link href="https://github.com/JazzRose" target="_blank">Jazz</Link>
       </div>
       <div>
         <Logo src={github_logo}/>
-        <Link href="https://github.com/drleafgreen88">Derek</Link>
+        <Link href="https://github.com/drleafgreen88" target="_blank">Derek</Link>
       </div>
       <div>
         <Logo src={github_logo}/>
-        <Link href="https://github.com/J-Rozas">Emilio</Link>
+        <Link href="https://github.com/J-Rozas" target="_blank">Emilio</Link>
       </div>
     </DevsContainer>
   )
