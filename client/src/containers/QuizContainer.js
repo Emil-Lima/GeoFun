@@ -1,6 +1,7 @@
-import React, {useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import styled from 'styled-components';
+import GameStart from '../components/GameStart';
 
 
 const Quiz = styled.div`
@@ -14,6 +15,7 @@ const Question = styled.div`
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size:40px;
     margin-top:20px;
+    color:#00afd2;
     `
 
 
@@ -32,14 +34,17 @@ border:none;
         transition-duration: 0.2s;
     }
 `
-
+const Score = styled.h2`
+color:#076d5d;
+font-size:30px;
+`
 const ButtonFlex = styled.div`
 display: flex;
 flex-direction: column;
 border:3px solid grey;
 padding:30px;
 `
-const QuizContainer = ({profile}) => {
+const QuizContainer = ({ profile }) => {
 
     const questions = [{
         questionText: 'What is the capital of France?',
@@ -73,42 +78,203 @@ const QuizContainer = ({profile}) => {
         answerOptions: [
             { answer: 'Spain', isCorrect: false },
             { answer: 'Bosnia and Herzegovinia', isCorrect: false },
-            { answer: 'Slovakia', isCorrect: false },
-            { answer: 'Slovenia', isCorrect: true },
+            { answer: 'Slovakia', isCorrect: true },
+            { answer: 'Slovenia', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'What is the capital of Croatia?',
+        answerOptions: [
+            { answer: 'Zagreb', isCorrect: true },
+            { answer: 'Madrid', isCorrect: false },
+            { answer: 'Paris', isCorrect: false },
+            { answer: 'Dofia', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Name a country that drives on the right.',
+        answerOptions: [
+            { answer: 'Ireland', isCorrect: false },
+            { answer: 'Cyprus', isCorrect: false },
+            { answer: 'Andorra', isCorrect: true },
+            { answer: 'Malta', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Which flag does not contain the colour yellow?',
+        answerOptions: [
+            { answer: 'Armenia', isCorrect: false },
+            { answer: 'Belgium', isCorrect: false },
+            { answer: 'Romania', isCorrect: false },
+            { answer: 'Estonia', isCorrect: true },
+        ],
+    },
+    {
+        questionText: 'Which country has no land borders?',
+        answerOptions: [
+            { answer: 'Netherlands', isCorrect: false },
+            { answer: 'Germany', isCorrect: false },
+            { answer: 'Finland', isCorrect: false },
+            { answer: 'Iceland', isCorrect: true },
+        ],
+    },
+    {
+        questionText: 'What is the capital of Portugal?',
+        answerOptions: [
+            { answer: 'Stockholm', isCorrect: false },
+            { answer: 'Berlin', isCorrect: false },
+            { answer: 'Lisbon', isCorrect: true },
+            { answer: 'Athens', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'What is the Population of Ukraine?',
+        answerOptions: [
+            { answer: '4134693', isCorrect: true },
+            { answer: '413469', isCorrect: false },
+            { answer: '5134693', isCorrect: false },
+            { answer: '513469', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Which flag contains the colour red?',
+        answerOptions: [
+            { answer: 'Belgium', isCorrect: false },
+            { answer: 'Ireland', isCorrect: false },
+            { answer: 'Iceland', isCorrect: true },
+            { answer: 'Sweden', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'WWhich of these  does not speak German?',
+        answerOptions: [
+            { answer: 'Germany', isCorrect: false },
+            { answer: 'Belgium', isCorrect: false },
+            { answer: 'Luxembourg', isCorrect: false },
+            { answer: 'Poland', isCorrect: true },
+        ],
+    },
+    {
+        questionText: 'What is the capital of Lithuania?',
+        answerOptions: [
+            { answer: 'Vilnius', isCorrect: true },
+            { answer: 'Madrid', isCorrect: false },
+            { answer: 'Paris', isCorrect: false },
+            { answer: 'Dofia', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Where is Skopje?',
+        answerOptions: [
+            { answer: 'Iceland', isCorrect: false },
+            { answer: 'Bulgaria', isCorrect: false },
+            { answer: 'North Mecedonia', isCorrect: true },
+            { answer: 'Estonia', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Which flag has a cross?',
+        answerOptions: [
+            { answer: 'Latvia', isCorrect: false },
+            { answer: 'Russia', isCorrect: false },
+            { answer: 'Austria', isCorrect: false },
+            { answer: 'Switzerland', isCorrect: true },
+        ],
+    },
+    {
+        questionText: 'Which country has the smallest poulation?',
+        answerOptions: [
+            { answer: 'Licthenstein', isCorrect: true },
+            { answer: 'Germany', isCorrect: false },
+            { answer: 'Finland', isCorrect: false },
+            { answer: 'Iceland', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Which country has the largest poulation?',
+        answerOptions: [
+            { answer: 'Italy', isCorrect: true },
+            { answer: 'Spain', isCorrect: false },
+            { answer: 'Ukraine', isCorrect: false },
+            { answer: 'Poland', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Where do the residents speak Dutch?',
+        answerOptions: [
+            { answer: 'Ireland', isCorrect: false },
+            { answer: 'Serbia', isCorrect: false },
+            { answer: 'Netherlands', isCorrect: true },
+            { answer: 'Denmark', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Where is Warsaw?',
+        answerOptions: [
+            { answer: 'Italy', isCorrect: false },
+            { answer: 'Norway', isCorrect: false },
+            { answer: 'Poland', isCorrect: true },
+            { answer: 'France', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Where is Brussels?',
+        answerOptions: [
+            { answer: 'Portugal', isCorrect: false },
+            { answer: 'Belgium', isCorrect: true },
+            { answer: 'Bosnia and Herzegovina', isCorrect: false },
+            { answer: 'Belarus', isCorrect: false },
+        ],
+    },
+    {
+        questionText: 'Where is Copenhagen?',
+        answerOptions: [
+            { answer: 'Malta', isCorrect: false },
+            { answer: 'Finland', isCorrect: false },
+            { answer: 'Greece', isCorrect: false },
+            { answer: 'Denmark', isCorrect: true },
         ],
     },
     ];
 
-    const [question,setQuestion] = useState(0)
-    const [score,setScore] = useState(0)
+    const [question, setQuestion] = useState(0)
+    const [score, setScore] = useState(0)
+    const [gameStarted, setGameStarted] = useState(false)
+
+    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 5)
 
     const checkAnswer = (event) => {
         const correct = event.target.value
-        const newScore = score +1
-        if (correct === "true"){
-         setScore(newScore) 
-            }
+        const newScore = score + 1
+        if (correct === "true") {
+            setScore(newScore)
+        }
         const next = question + 1
-        if (next< questions.length) {
-            setQuestion(next)}
-
-
+        if (next < randomQuestions.length) {
+            setQuestion(next)
         }
 
-  return (
 
-    <>
-    <Header profile = {profile}/>
-    <Quiz>
-    <Question>{questions[question].questionText}</Question>
-    <h2> {score}/{questions.length} </h2>
-    <ButtonFlex>
-	{questions[question].answerOptions.map((answerOption, index) => (
-		<Button onClick = {checkAnswer} value = {answerOption.isCorrect}>{answerOption.answer}</Button>
-	))}
-    </ButtonFlex>
-    </Quiz>
-    </>
-  )
     }
+
+    const startGame = () => {
+        setGameStarted(!gameStarted)
+    }
+
+    return (
+
+        <>
+            <Header profile={profile} />
+            {gameStarted === true ? <Quiz>
+                <Question>{randomQuestions[question].questionText}</Question>
+                <Score> {score}/{randomQuestions.length} </Score>
+                <ButtonFlex>
+                    {randomQuestions[question].answerOptions.map((answerOption, index) => (
+                        <Button onClick={checkAnswer} value={answerOption.isCorrect}>{answerOption.answer}</Button>
+                    ))}
+                </ButtonFlex>
+            </Quiz> : <GameStart startGame={startGame} />}
+        </>
+    )
+}
 export default QuizContainer
