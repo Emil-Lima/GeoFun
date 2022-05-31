@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer, Popup, GeoJSON } from "react-leaflet";
 import europeData from "../data/europe-info.json"
 
 const SelectCountry = () => {
 
+  const [mysteryCountry, setMysteryCountry] = useState(null);
+  const [userSelection, setUserSelection] = useState(null);
   const listOfCountries = [];
 
   const playGame = () => {
-    const mysteryCountry = listOfCountries[Math.floor(Math.random()*listOfCountries.length)];
-    console.log(mysteryCountry)
-    return mysteryCountry;
+    const newMysteryCountry = listOfCountries[Math.floor(Math.random()*listOfCountries.length)];
+    console.log(mysteryCountry);
+    setMysteryCountry(newMysteryCountry);
+  }
+
+  const checkIfCorrect = (country) => {
+    
   }
 
   return (
@@ -26,16 +32,17 @@ const SelectCountry = () => {
           listOfCountries.push(country.properties.name)
           
           return (
-            <GeoJSON attribution="&copy; credits due..." data={country} key={index}>
-              <Popup>
+            <GeoJSON attribution="&copy; credits due..." data={country} key={index} value={country.properties.name} eventHandlers={{click: checkIfCorrect}}>
+              {/* <Popup>
                 <h1>{country.properties.name}</h1>
-              </Popup>
+              </Popup> */}
             </GeoJSON>)
             
         })
       }
     </MapContainer>
     <button onClick={playGame}>Play game</button>
+    {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
     </div>
   )
 }
