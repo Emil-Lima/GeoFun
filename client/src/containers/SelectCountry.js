@@ -12,11 +12,19 @@ const SelectCountry = () => {
     const newMysteryCountry = listOfCountries[Math.floor(Math.random()*listOfCountries.length)];
     console.log(mysteryCountry);
     setMysteryCountry(newMysteryCountry);
+
+    if (userSelection != null) {
+      setUserSelection(null);
+    }
   }
 
-  const checkIfCorrect = (country) => {
-    
+  const getUserChoice = (country) => {
+    setUserSelection(country.target.options.value)
   }
+
+  // const checkIfCorrect = (country) => {
+    
+  // }
 
   return (
     <div>
@@ -32,7 +40,7 @@ const SelectCountry = () => {
           listOfCountries.push(country.properties.name)
           
           return (
-            <GeoJSON attribution="&copy; credits due..." data={country} key={index} value={country.properties.name} eventHandlers={{click: checkIfCorrect}}>
+            <GeoJSON attribution="&copy; credits due..." data={country} key={index} value={country.properties.name} eventHandlers={{click: getUserChoice}}>
               {/* <Popup>
                 <h1>{country.properties.name}</h1>
               </Popup> */}
@@ -43,6 +51,7 @@ const SelectCountry = () => {
     </MapContainer>
     <button onClick={playGame}>Play game</button>
     {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
+    {userSelection != null && userSelection == mysteryCountry ? <p>Yes, it is {userSelection}</p> : <p>You are wrong</p>}
     </div>
   )
 }
