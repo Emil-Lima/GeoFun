@@ -9,6 +9,15 @@ import monster_4 from "./assets/monster_4.png"
 import monster_5 from "./assets/monster_5.png"
 import monster_6 from "./assets/monster_6.png"
 import Footer from './components/Footer';
+import styled from 'styled-components';
+
+
+const Wrapper = styled.body`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+`
 
 
 function App() {
@@ -123,10 +132,10 @@ function App() {
 
 
   return (
-    <>
+    <Wrapper>
       {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry} fetchCountryObjects = {fetchCountryObjects} profile = {profile} savedCountryObjects = {savedCountryObjects}/> : <ProfileContainer allProfiles = {allProfiles} addProfile = {addProfile} selectProfile = {selectProfile}/>}
       <Footer></Footer>
-    </>
+    </Wrapper>
     
   )
 }
