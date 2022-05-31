@@ -112,7 +112,6 @@ const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
 
                 </AvatarSelect>
             </FormContainer>
-            <Footer />
         </>
     )
 }

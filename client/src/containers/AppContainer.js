@@ -21,7 +21,6 @@ const AppContainer = ({countries, savedCountries, savedCountryObjects, selectedC
         <SavedLocations savedCountries = {savedCountries} savedCountryObjects = {savedCountryObjects} updateSelectedCountry = {updateSelectedCountry} fetchCountryObjects = {fetchCountryObjects} profile = {profile}/>
         {selectedCountry ? <CountryDetails countries = {countries} selectedCountry= {selectedCountry}/> : null }
       </Details>
-      <Footer />
     </div>
   )
 }

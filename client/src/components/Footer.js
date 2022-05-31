@@ -3,12 +3,13 @@ import styled from "styled-components";
 import github_logo from "../assets/github_logo.png"
 
 const DevsContainer = styled.footer`
-  height: 15vh;
+  min-height: 15vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: white;
   box-shadow: 0px 5px 10px rgb(140 140 140 / 79%);
   margin-top: 1%;
+  top: 50%;
 `
 
 const Logo = styled.img`
