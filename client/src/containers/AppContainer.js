@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import SavedLocations from '../components/SavedLocations'
 import Map from '../components/Map'
 import styled from "styled-components"
+import Footer from '../components/Footer'
 
 const Details = styled.section`
 display: flex;

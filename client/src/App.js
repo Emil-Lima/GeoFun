@@ -2,9 +2,16 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import AppContainer from './containers/AppContainer';
 import ProfileContainer from './containers/ProfileContainer';
+import Footer from './components/Footer';
+import styled from 'styled-components';
 import { getUsers, postUser, patchUser } from './services/GeoFunServices';
 
-
+const Wrapper = styled.body`
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+`
 
 function App() {
 
@@ -95,11 +102,10 @@ function App() {
 
 
   return (
-    <>
-      {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />}
-
-    </>
-
+    <Wrapper>
+      {profile ? <AppContainer countries = {countries} savedCountries = {savedCountries} selectedCountry = {selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry = {updateSelectedCountry} fetchCountryObjects = {fetchCountryObjects} profile = {profile} savedCountryObjects = {savedCountryObjects}/> : <ProfileContainer allProfiles = {allProfiles} addProfile = {addProfile} selectProfile = {selectProfile}/>}
+      <Footer></Footer>
+    </Wrapper>
   )
 }
 
