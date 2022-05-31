@@ -128,7 +128,10 @@ function App() {
             } />
 
             <Route path="/selectCountry" element={
-              <SelectCountry/>
+              profile ? <SelectCountry profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
+
+              
+              // <SelectCountry/>
             } />
 
           </Routes>
