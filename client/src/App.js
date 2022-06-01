@@ -107,6 +107,7 @@ function App() {
 
   const onHomeClick = () => {
     setProfile(null)
+    setSavedCountries([])
   }
 
   return (
