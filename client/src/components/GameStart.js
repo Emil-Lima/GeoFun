@@ -29,15 +29,15 @@ flex-direction:column;
 justify-content: center;
 align-items:center;
 `
-const GameStart = ({startGame}) => {
+const GameStart = ({startGame, runningScore}) => {
 
     const onStartClick = () => {
         startGame()
-        console.log("clicking")
     }
   return (
     <QuizStartBox>
     <Title> Take our Quiz and see how many points you can get!</Title>
+    {runningScore>0? <p>Your last score was {runningScore}, can you beat it?</p> : <p>You Can do it!</p>}
       <Button onClick = {onStartClick}>Let's Go!</Button>
     </QuizStartBox>
   )

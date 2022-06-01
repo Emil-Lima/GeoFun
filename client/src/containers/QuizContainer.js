@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect,useState} from 'react'
 import Header from '../components/Header'
 import styled from 'styled-components';
 import GameStart from '../components/GameStart';
@@ -44,7 +44,7 @@ flex-direction: column;
 border:3px solid grey;
 padding:30px;
 `
-const QuizContainer = ({ profile }) => {
+const QuizContainer = ({profile}) => {
 
     const questions = [{
         questionText: 'What is the capital of France?',
@@ -237,44 +237,48 @@ const QuizContainer = ({ profile }) => {
     },
     ];
 
-    const [question, setQuestion] = useState(0)
-    const [score, setScore] = useState(0)
-    const [gameStarted, setGameStarted] = useState(false)
+    const [question,setQuestion] = useState(0)
+    const [score,setScore] = useState(0)
+    const [gameStarted,setGameStarted] = useState(false)
+    const [runningScore,setRunningScore] = useState (0)
 
-    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 5)
+
+    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0,10)
 
     const checkAnswer = (event) => {
         const correct = event.target.value
-        const newScore = score + 1
-        if (correct === "true") {
-            setScore(newScore)
-        }
+        const newScore = score +1
+        if (correct === "true"){
+         setScore(newScore) 
+            }
         const next = question + 1
-        if (next < randomQuestions.length) {
-            setQuestion(next)
+        if (next< randomQuestions.length) {
+            setQuestion(next)}
+        else{
+            setRunningScore(score)
+            startGame()
         }
-
-
-    }
-
-    const startGame = () => {
+            //need to add else statement that sets score as running score and the sets the game to started -> score to 0
+        }
+        
+        const startGame = () =>{
         setGameStarted(!gameStarted)
+        setScore(0)}
+
+  return (
+
+    <>
+    <Header profile = {profile}/>
+    {gameStarted === true?<Quiz>
+    <Question>{randomQuestions[question].questionText}</Question>
+    <Score> {score}/{randomQuestions.length} </Score>
+    <ButtonFlex>
+	{randomQuestions[question].answerOptions.map((answerOption, index) => (
+		<Button onClick = {checkAnswer} value = {answerOption.isCorrect}>{answerOption.answer}</Button>
+	))}
+    </ButtonFlex>
+    </Quiz>:<GameStart startGame = {startGame} runningScore = {runningScore}/>}
+    </>
+  )
     }
-
-    return (
-
-        <>
-            <Header profile={profile} />
-            {gameStarted === true ? <Quiz>
-                <Question>{randomQuestions[question].questionText}</Question>
-                <Score> {score}/{randomQuestions.length} </Score>
-                <ButtonFlex>
-                    {randomQuestions[question].answerOptions.map((answerOption, index) => (
-                        <Button onClick={checkAnswer} value={answerOption.isCorrect}>{answerOption.answer}</Button>
-                    ))}
-                </ButtonFlex>
-            </Quiz> : <GameStart startGame={startGame} />}
-        </>
-    )
-}
 export default QuizContainer
