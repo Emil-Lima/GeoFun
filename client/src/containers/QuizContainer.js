@@ -262,6 +262,7 @@ const QuizContainer = ({profile , onHomeClick}) => {
         }
         
         const startGame = () =>{
+        setQuestion(0)
         setGameStarted(!gameStarted)
         setScore(0)}
 
