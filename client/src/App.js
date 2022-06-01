@@ -5,6 +5,7 @@ import ProfileContainer from './containers/ProfileContainer';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import { getUsers, postUser, patchUser } from './services/GeoFunServices';
+import SelectCountry from './containers/SelectCountry';
 import {
   BrowserRouter as Router,
   Routes,
@@ -12,6 +13,8 @@ import {
   Link
 } from "react-router-dom";
 import QuizContainer from './containers/QuizContainer';
+import PopulationsContainer from './containers/PopulationsContainer';
+
 
 const Wrapper = styled.body`
   display: flex;
@@ -37,12 +40,6 @@ function App() {
   useEffect(() => {
     fetchCountries()
   }, [])
-
-  useEffect(() => {
-    if (profile) {
-      setSavedCountries(profile.savedCountries)
-    }
-  }, [profile])
 
 
   const fetchCountries = () => {
@@ -78,7 +75,7 @@ function App() {
   }
 
   const fetchCountryObjects = (codes) => {
-    if (savedCountries.length > 0) {
+    if (codes.length > 0) {
       const url = "https://restcountries.com/v3.1/alpha?codes=" + codes
       fetch(url)
         .then((res) => res.json())
@@ -104,6 +101,8 @@ function App() {
 
   const selectProfile = (pro) => {
     setProfile(pro)
+    fetchCountryObjects(pro.savedCountries)
+    setSavedCountries(pro.savedCountries)
   }
 
 
@@ -119,12 +118,19 @@ function App() {
 
               {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />}
             />
-            <Route path="/populations" element={
-              <h3>This is where the charts go</h3>
-            } />
+            <Route path="/populations" element=
+              {savedCountryObjects ? <PopulationsContainer savedCountryObjects={savedCountryObjects} profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />}
+            />
 
             <Route path="/quiz" element={
               <QuizContainer profile = {profile}/>
+            } />
+
+            <Route path="/selectCountry" element={
+              profile ? <SelectCountry profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
+
+              
+              // <SelectCountry/>
             } />
 
           </Routes>

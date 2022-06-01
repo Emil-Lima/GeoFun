@@ -20,6 +20,9 @@ const NavBar = () => {
             <li>
               <Link to="/quiz">Quiz</Link>
             </li>
+            <li>
+              <Link to="/selectCountry">Select country</Link>
+            </li>
           </ul>
         </nav>
     </>
