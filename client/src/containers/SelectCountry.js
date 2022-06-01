@@ -60,7 +60,7 @@ const SelectCountry = ({profile, onHomeClick}) => {
 
     const userChoice = country.target.options.value;
 
-    const listOfGoodAnswers = getGoodAnswers(profile.name);
+    const listOfGoodAnswers = getGoodAnswers(profile.name, userChoice, mysteryCountry);
     const listOfBadAnswers = getBadAnswers(profile.name, userChoice, mysteryCountry);
 
     setBadAnswer(listOfBadAnswers[Math.floor(Math.random()*listOfBadAnswers.length)]);
