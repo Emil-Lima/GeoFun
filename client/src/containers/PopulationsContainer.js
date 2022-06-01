@@ -102,7 +102,7 @@ const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => 
 
     return (
         <>
-            <Header profile={profile} onHomeClick = {onHomeClick} />
+         <Header profile = {profile} onHomeClick={onHomeClick}/>
 
             <button value={savedCountryObjects} onClick={handleSavedClick}>Saved Countries</button>
             <button value={europeInfo} onClick={handleAllClick}>All Countries</button>

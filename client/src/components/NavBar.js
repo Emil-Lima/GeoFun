@@ -47,7 +47,7 @@ const NavBar = () => {
     <nav>
       <UL>
         <LI>
-          <Button class="button-yellow">
+          <Button className="button-yellow">
             <Link to="/">Map</Link>
           </Button>
         </LI>

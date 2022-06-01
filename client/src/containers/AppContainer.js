@@ -28,7 +28,7 @@ const AppContainer = ({countries, savedCountries, savedCountryObjects, selectedC
 
   return (
     <div>
-      <Header profile = {profile}onHomeClick={onHomeClick}/>
+      <Header profile = {profile} onHomeClick={onHomeClick}/>
       <Map countries = {countries} addSavedCountry = {addSavedCountry} />
       
       <Details>

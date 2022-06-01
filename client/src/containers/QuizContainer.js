@@ -44,8 +44,8 @@ flex-direction: column;
 border:3px solid grey;
 padding:30px;
 `
-const QuizContainer = ({profile,onHomeClick}) => {
 
+const QuizContainer = ({profile , onHomeClick}) => {
     const questions = [{
         questionText: 'What is the capital of France?',
         answerOptions: [
