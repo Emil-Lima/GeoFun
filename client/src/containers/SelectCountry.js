@@ -4,7 +4,7 @@ import europeData from "../data/europe-info.json"
 import Header from "../components/Header"; 
 import styled from "styled-components";
 import getGoodAnswers from "../data/good-answers";
-// import listOfBadAnswers from "../data/bad-answers";
+import getBadAnswers from "../data/bad-answers";
 
 const Button = styled.button`
 
@@ -44,10 +44,8 @@ const SelectCountry = ({profile, onHomeClick}) => {
   const [userSelection, setUserSelection] = useState(null);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(null);
   const [goodAnswer, setGoodAnswer] = useState(null);
-  // const [badAnswer, setBadAnswer] = useState(null);
+  const [badAnswer, setBadAnswer] = useState(null);
 
-  const listOfGoodAnswers = getGoodAnswers(profile.name);
-  
   const listOfCountries = [];
 
   const playGame = () => {
@@ -55,8 +53,6 @@ const SelectCountry = ({profile, onHomeClick}) => {
     setMysteryCountry(newMysteryCountry);
     setUserSelection(null);
     setIsCorrectAnswer(null);
-    // setBadAnswer(listOfBadAnswers[Math.floor(Math.random()*listOfBadAnswers.length)]);
-    setGoodAnswer(listOfGoodAnswers[Math.floor(Math.random()*listOfGoodAnswers.length)]);
   }
 
   const getUserChoice = (country) => {
@@ -64,10 +60,16 @@ const SelectCountry = ({profile, onHomeClick}) => {
 
     const userChoice = country.target.options.value;
 
+    const listOfGoodAnswers = getGoodAnswers(profile.name);
+    const listOfBadAnswers = getBadAnswers(profile.name, userChoice, mysteryCountry);
+
+    setBadAnswer(listOfBadAnswers[Math.floor(Math.random()*listOfBadAnswers.length)]);
+    setGoodAnswer(listOfGoodAnswers[Math.floor(Math.random()*listOfGoodAnswers.length)]);
+
     checkIfCorrect(userChoice);
-
-
   }
+
+  console.log()
 
   const checkIfCorrect = (userChoice) => {
     if (mysteryCountry === null) {
@@ -90,7 +92,7 @@ const SelectCountry = ({profile, onHomeClick}) => {
     <Button onClick={playGame}>Play game</Button>
     <QuestionContainer>
     {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
-    {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p>Nope</p>}
+    {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p>{badAnswer}</p>}
     </QuestionContainer>
     </PlayGame>
     
