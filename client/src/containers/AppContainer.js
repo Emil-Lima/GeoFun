@@ -12,6 +12,8 @@ display: flex;
 justify-content: center;
 gap: 5vw;
 margin: 0;
+margin-top: 3vh;
+margin-bottom: 3vh;
 `
 
 const SavedContainer = styled.div`

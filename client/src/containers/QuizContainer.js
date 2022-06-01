@@ -25,7 +25,7 @@ width:400px;
 font-size:40px;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
 margin:10px;
-background-color: #66124e;
+background-color: #008AAA;
 color:white;
 border:none;
     &:hover{
