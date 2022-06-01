@@ -117,22 +117,21 @@ function App() {
 
           <Routes>
             <Route path="/" element=
-
               {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry}  onHomeClick = {onHomeClick} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile}/>}
             />
+            
             <Route path="/populations" element=
-              {savedCountryObjects ? <PopulationsContainer onHomeClick = {onHomeClick}  savedCountryObjects={savedCountryObjects} profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />}
+              {savedCountryObjects && profile? <PopulationsContainer savedCountryObjects={savedCountryObjects} profile={profile} onHomeClick = {onHomeClick}/> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />}
             />
 
-            <Route path="/quiz" element={
-              <QuizContainer profile = {profile} onHomeClick = {onHomeClick} />
-            } />
+            <Route path="/quiz" element=
+            { profile? <QuizContainer profile = {profile} onHomeClick = {onHomeClick}/> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />} 
+            />
 
             <Route path="/selectCountry" element={
-              profile ? <SelectCountry profile={profile} onHomeClick = {onHomeClick} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
-
+              profile ? <SelectCountry profile={profile} onHomeClick = {onHomeClick}/> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
               
-              // <SelectCountry/>
+            
             } />
 
           </Routes>
