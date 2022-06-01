@@ -12,7 +12,7 @@ const ChartContainer = styled.div`
 `
 
 
-const PopulationsContainer = ({ savedCountryObjects, profile }) => {
+const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => {
 
 
     const [currentData, setCurrentData] = useState(europeInfo)
@@ -102,7 +102,8 @@ const PopulationsContainer = ({ savedCountryObjects, profile }) => {
 
     return (
         <>
-            <Header profile={profile} />
+         <Header profile = {profile} onHomeClick={onHomeClick}/>
+
 
             <button value={savedCountryObjects} onClick={handleSavedClick}>Saved Countries</button>
             <button value={europeInfo} onClick={handleAllClick}>All Countries</button>

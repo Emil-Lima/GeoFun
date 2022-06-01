@@ -44,7 +44,7 @@ flex-direction: column;
 border:3px solid grey;
 padding:30px;
 `
-const QuizContainer = ({profile}) => {
+const QuizContainer = ({profile , onHomeClick}) => {
 
     const questions = [{
         questionText: 'What is the capital of France?',
@@ -268,7 +268,7 @@ const QuizContainer = ({profile}) => {
   return (
 
     <>
-    <Header profile = {profile}/>
+    <Header profile = {profile} onHomeClick = {onHomeClick}/>
     {gameStarted === true?<Quiz>
     <Question>{randomQuestions[question].questionText}</Question>
     <Score> {score}/{randomQuestions.length} </Score>
