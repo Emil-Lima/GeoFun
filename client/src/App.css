@@ -83,5 +83,14 @@ body {
   background-repeat: no-repeat;
   background-size:100vw;
   background-position: center;
+  background-attachment: fixed;
   
 }
+.MapContainerGame { 
+  height: 70vh;
+  width: 70vw;
+  margin: auto;
+  margin-top: 2vh;
+  border-radius: 40px;
+  border: 20px solid #7448d0 ;
+  }

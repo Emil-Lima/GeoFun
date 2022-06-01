@@ -6,11 +6,11 @@ import styled from "styled-components";
 
 const Button = styled.button`
 
-width:300px;
-font-size:30px;
+width:200px;
+font-size:20px;
 font-family:Verdana, Geneva, Tahoma, sans-serif;
-margin:10px;
-background-color: #00af2d;
+margin:5px;
+background-color: #FF6522;
 color:white;
 border:none;
     &:hover{
@@ -21,10 +21,19 @@ border:none;
 `
 const PlayGame = styled.div`
 display: flex;
-flex-direction: row;
-width:50%;
+flex-direction: column;
+width:50vw;
 margin:auto;
 justify-content: space-between;
+align-items: center;
+`
+const QuestionContainer = styled.div`
+display: flex;
+gap: 2vw;
+`
+const Title = styled.h2`
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+color: #076d5d;
 `
 
 const SelectCountry = ({profile, onHomeClick}) => {
@@ -70,12 +79,15 @@ const SelectCountry = ({profile, onHomeClick}) => {
     <div>
     <Header profile={profile} onHomeClick = {onHomeClick}></Header>
     <PlayGame>
-    <h2>Guess the country!</h2>
+    <Title>Guess the country!</Title>
     <Button onClick={playGame}>Play game</Button>
-    </PlayGame>
+    <QuestionContainer>
     {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
     {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>Correct, you have found {mysteryCountry}!</p> : <p>Nope, that is {userSelection}</p>}
-    <MapContainer center={[52.015670, 18.635115]} zoom={4} scrollWheelZoom={false} className="MapContainer" >
+    </QuestionContainer>
+    </PlayGame>
+    
+    <MapContainer center={[52.015670, 18.635115]} zoom={4} scrollWheelZoom={false} className="MapContainerGame" >
       <TileLayer
        attribution='&copy; <a href="Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
           url="https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.jpg"

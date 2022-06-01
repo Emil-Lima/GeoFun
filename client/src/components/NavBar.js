@@ -75,7 +75,7 @@ const NavBar = () => {
         </LI>
         <LI>
           <Button>
-            <Link style={{textDecoration: 'none'}} to="/selectCountry">Select country</Link>
+            <Link style={{textDecoration: 'none'}} to="/selectCountry">Game</Link>
           </Button>
         </LI>
       </UL>
