@@ -3,6 +3,8 @@ import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import europeData from "../data/europe-info.json"
 import Header from "../components/Header"; 
 import styled from "styled-components";
+import getGoodAnswers from "../data/good-answers";
+import getBadAnswers from "../data/bad-answers";
 
 const Button = styled.button`
 
@@ -41,6 +43,9 @@ const SelectCountry = ({profile, onHomeClick}) => {
   const [mysteryCountry, setMysteryCountry] = useState(null);
   const [userSelection, setUserSelection] = useState(null);
   const [isCorrectAnswer, setIsCorrectAnswer] = useState(null);
+  const [goodAnswer, setGoodAnswer] = useState(null);
+  const [badAnswer, setBadAnswer] = useState(null);
+
   const listOfCountries = [];
 
   const playGame = () => {
@@ -55,17 +60,21 @@ const SelectCountry = ({profile, onHomeClick}) => {
 
     const userChoice = country.target.options.value;
 
+    const listOfGoodAnswers = getGoodAnswers(profile.name, userChoice, mysteryCountry);
+    const listOfBadAnswers = getBadAnswers(profile.name, userChoice, mysteryCountry);
+
+    setBadAnswer(listOfBadAnswers[Math.floor(Math.random()*listOfBadAnswers.length)]);
+    setGoodAnswer(listOfGoodAnswers[Math.floor(Math.random()*listOfGoodAnswers.length)]);
+
     checkIfCorrect(userChoice);
-
-
   }
+
+  console.log()
 
   const checkIfCorrect = (userChoice) => {
     if (mysteryCountry === null) {
-      console.log("Mystery country is empty");
       setUserSelection(null);
     } else {
-      console.log("Mystery country is",mysteryCountry);
       if (userChoice === mysteryCountry) {
         setIsCorrectAnswer(true);
       } else {
@@ -83,7 +92,7 @@ const SelectCountry = ({profile, onHomeClick}) => {
     <Button onClick={playGame}>Play game</Button>
     <QuestionContainer>
     {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
-    {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>Correct, you have found {mysteryCountry}!</p> : <p>Nope, that is {userSelection}</p>}
+    {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p>{badAnswer}</p>}
     </QuestionContainer>
     </PlayGame>
     
