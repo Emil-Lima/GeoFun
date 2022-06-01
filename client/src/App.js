@@ -105,7 +105,9 @@ function App() {
     setSavedCountries(pro.savedCountries)
   }
 
-
+  const onHomeClick = () => {
+    setProfile(null)
+  }
 
   return (
     <Wrapper>
@@ -116,7 +118,7 @@ function App() {
           <Routes>
             <Route path="/" element=
 
-              {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />}
+              {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry}  onHomeClick = {onHomeClick} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile}/>}
             />
             <Route path="/populations" element=
               {savedCountryObjects ? <PopulationsContainer savedCountryObjects={savedCountryObjects} profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />}
