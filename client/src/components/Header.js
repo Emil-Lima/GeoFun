@@ -42,7 +42,7 @@ const Header = ({ profile, onHomeClick }) => {
 
 
       <ProfileInfo>
-        <h2>Welcome {profile.name}!</h2>
+        <h2>Welcome, {profile.name}!</h2>
         <img src={`../img/${profile.avatar}.png`} height="75" />
       </ProfileInfo>
     </NavContainer>

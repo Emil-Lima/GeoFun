@@ -41,8 +41,8 @@ const GameStart = ({startGame, runningScore}) => {
     }
   return (
     <QuizStartBox>
-    <Title> Take our Quiz and see how many points you can get!</Title>
-    {runningScore>0? <P>Your last score was {runningScore}, can you beat it?</P> : <P>You Can do it!</P>}
+    <Title> Take our quiz and see how many points you can get!</Title>
+    {runningScore>0? <P>Your last score was {runningScore}. Can you beat it?</P> : <P>You can do it!</P>}
       <Button onClick = {onStartClick}>Let's Go!</Button>
     </QuizStartBox>
   )

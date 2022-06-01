@@ -89,9 +89,9 @@ const SelectCountry = ({profile, onHomeClick}) => {
     <Header profile={profile} onHomeClick = {onHomeClick}></Header>
     <PlayGame>
     <Title>Guess the country!</Title>
-    <Button onClick={playGame}>Play game</Button>
+    <Button onClick={playGame}>Play Game</Button>
     <QuestionContainer>
-    {mysteryCountry === null ? null : <p>Find {mysteryCountry} in the map!</p>}
+    {mysteryCountry === null ? null : <p>Find {mysteryCountry} on the map!</p>}
     {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p>{badAnswer}</p>}
     </QuestionContainer>
     </PlayGame>

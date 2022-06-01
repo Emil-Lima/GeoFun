@@ -146,7 +146,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         ],
     },
     {
-        questionText: 'WWhich of these does not speak German?',
+        questionText: 'Which of these does not speak German?',
         answerOptions: [
             { answer: 'Germany', isCorrect: false },
             { answer: 'Belgium', isCorrect: false },
