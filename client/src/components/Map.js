@@ -1,6 +1,23 @@
 import React, {useState} from 'react'
 import { MapContainer, TileLayer, Popup, GeoJSON } from 'react-leaflet'
 import europeData from "../data/europe-info.json"
+import styled from "styled-components"
+
+const Button = styled.button`
+  width:5vw;
+font-size:15px;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+margin:10px;
+background-color: #008AAA;
+color:white;
+border:none;
+    &:hover{
+        text-decoration:underline;
+        transform:translateY(4px);
+        transition-duration: 0.2s;
+    }
+`
+
 
 const Map = ({countries, addSavedCountry}) => {
   
@@ -36,9 +53,9 @@ const Map = ({countries, addSavedCountry}) => {
                   <h3>{country.properties.name} {currentData.flag}</h3>
                   <h4>{currentData.subregion}</h4>
                   
-                  <button onClick = {handleClick}>
-                    + Save
-                  </button>
+                  <Button onClick = {handleClick}>
+                    Save
+                  </Button>
                 </Popup>
             </GeoJSON>)
 
