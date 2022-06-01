@@ -45,23 +45,28 @@ const Button = styled.button`
 const NavBar = () => {
   return (
     <nav>
-          <UL>
-            <LI>
-            <Button class="button-yellow">
-              <Link to="/">Map</Link>
-            </Button>
-            </LI>
-            <LI>
-            <Button>
-              <Link to="/populations">Populations</Link>
-            </Button>
-            </LI>
-            <LI>
-            <Button>
-              <Link to="/quiz">Quiz</Link>
-            </Button>
-            </LI>
-          </UL>
+      <UL>
+        <LI>
+          <Button class="button-yellow">
+            <Link to="/">Map</Link>
+          </Button>
+        </LI>
+        <LI>
+          <Button>
+            <Link to="/populations">Populations</Link>
+          </Button>
+        </LI>
+        <LI>
+          <Button>
+            <Link to="/quiz">Quiz</Link>
+          </Button>
+        </LI>
+        <LI>
+          <Button>
+            <Link to="/selectCountry">Select country</Link>
+          </Button>
+        </LI>
+      </UL>
     </nav>
   )
 }
