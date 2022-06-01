@@ -71,9 +71,9 @@ const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
             </Avatars>
 
             <FormContainer onSubmit = {handleSubmit}>
-                <input type="text" placeholder="Your Name" onChange = {handleNameChange} />
+                <input type="text" placeholder="Your Name" onChange = {handleNameChange} required />
 
-                <input type="number" placeholder="Your Age" onChange = {handleAgeChange} />
+                <input type="number" placeholder="Your Age" onChange = {handleAgeChange} required />
 
                 <label>Choose Your Avatar</label>
                 <AvatarSelect>
