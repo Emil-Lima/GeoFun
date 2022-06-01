@@ -104,7 +104,6 @@ const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => 
         <>
          <Header profile = {profile} onHomeClick={onHomeClick}/>
 
-
             <button value={savedCountryObjects} onClick={handleSavedClick}>Saved Countries</button>
             <button value={europeInfo} onClick={handleAllClick}>All Countries</button>
             <ChartContainer>

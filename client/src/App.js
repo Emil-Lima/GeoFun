@@ -117,7 +117,6 @@ function App() {
 
           <Routes>
             <Route path="/" element=
-
               {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry}  onHomeClick = {onHomeClick} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile}/>}
             />
             
@@ -131,7 +130,6 @@ function App() {
 
             <Route path="/selectCountry" element={
               profile ? <SelectCountry profile={profile} onHomeClick = {onHomeClick}/> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
-
               
             
             } />
