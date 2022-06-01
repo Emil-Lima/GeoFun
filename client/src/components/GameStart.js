@@ -29,6 +29,11 @@ flex-direction:column;
 justify-content: center;
 align-items:center;
 `
+const P = styled.p`
+  font-size: 200%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;  
+`
+
 const GameStart = ({startGame, runningScore}) => {
 
     const onStartClick = () => {
@@ -37,7 +42,7 @@ const GameStart = ({startGame, runningScore}) => {
   return (
     <QuizStartBox>
     <Title> Take our Quiz and see how many points you can get!</Title>
-    {runningScore>0? <p>Your last score was {runningScore}, can you beat it?</p> : <p>You Can do it!</p>}
+    {runningScore>0? <P>Your last score was {runningScore}, can you beat it?</P> : <P>You Can do it!</P>}
       <Button onClick = {onStartClick}>Let's Go!</Button>
     </QuizStartBox>
   )

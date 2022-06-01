@@ -11,6 +11,35 @@ const ChartContainer = styled.div`
     border: 20px solid #7448d0;  */}
 `
 
+const ButtonContainer = styled.div`
+    margin-top: 3vh;
+    display: flex;
+    justify-content: center;
+`
+
+const Button = styled.button`
+
+width:20vw;
+font-size:30px;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+margin:10px;
+background-color: #008AAA;
+color:white;
+border:none;
+    &:hover{
+        text-decoration:underline;
+        transform:translateY(4px);
+        transition-duration: 0.2s;
+    }
+`
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`
+// const StyledChart = 
+
 
 const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => {
 
@@ -78,15 +107,16 @@ const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => 
     }
 
     const barOptions = {
-        title: "Country Populations",
+        title: "COUNTRY POPULATIONS",
         legend: { position: "none" },
-        backgroundColor: { fill:'transparent' }
+        backgroundColor: { fill: 'transparent' }
+
     }
 
     const pieOptions = {
-        title: "Country Populations as Part of Europe's Total Population",
+        title: "COUNTRY POPULATIONS AS PART OF EUROPE'S TOTAL POPULATION",
         legend: { position: "none" },
-        backgroundColor: { fill:'transparent' }
+        backgroundColor: { fill: 'transparent' }
     }
 
     const handleSavedClick = () => {
@@ -102,11 +132,14 @@ const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => 
 
     return (
         <>
-         <Header profile = {profile} onHomeClick={onHomeClick}/>
+            <Header profile={profile} onHomeClick={onHomeClick} />
 
-            <button value={savedCountryObjects} onClick={handleSavedClick}>Saved Countries</button>
-            <button value={europeInfo} onClick={handleAllClick}>All Countries</button>
+            <ButtonContainer>
+                <Button value={savedCountryObjects} onClick={handleSavedClick}>Saved Countries</Button>
+                <Button value={europeInfo} onClick={handleAllClick}>All Countries</Button>
+            </ButtonContainer>
             <ChartContainer>
+                <Container>
                     {savedCountryObjects ? <Chart
                         chartType="BarChart"
                         data={popChartData(currentData)}
@@ -114,7 +147,8 @@ const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => 
                         options={barOptions}
                     />
                         : null}
-
+                </Container>
+                <Container>
                     {savedCountryObjects ? <Chart
                         chartType="PieChart"
                         data={pieChartData(currentData)}
@@ -122,6 +156,7 @@ const PopulationsContainer = ({ savedCountryObjects, profile, onHomeClick }) => 
                         options={pieOptions}
                     />
                         : null}
+                </Container>
 
             </ChartContainer>
         </>
