@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import europeData from "../data/europe-info.json"
 import Header from "../components/Header";
 
-const SelectCountry = ({profile}) => {
+const SelectCountry = ({profile, onHomeClick}) => {
 
   const [mysteryCountry, setMysteryCountry] = useState(null);
   const [userSelection, setUserSelection] = useState(null);
@@ -44,7 +44,7 @@ const SelectCountry = ({profile}) => {
 
   return (
     <div>
-    <Header profile={profile}></Header>
+    <Header profile={profile} onHomeClick = {onHomeClick}></Header>
     <h2>Guess the country!</h2>
     <MapContainer center={[52.015670, 18.635115]} zoom={4} scrollWheelZoom={false} className="MapContainer" >
       <TileLayer

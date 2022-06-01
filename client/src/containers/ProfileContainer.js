@@ -13,12 +13,19 @@ const Avatars = styled.div`
 display: flex;
 justify-content: center;
 gap: 2vw;
+margin-top:5vw;
+margin-bottom:3vw;
 `
 
 const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     gap: 1vw;
+    justify-content: center;
+    width:40vw;
+    margin:auto;
+    align-items: center;
+    
 `
 
 const AvatarSelect = styled.div`
@@ -27,7 +34,36 @@ const AvatarSelect = styled.div`
     
 `
 
+const Input = styled.input`
+width:30vw;
+height:3vw;
+font-size:2vw;
+text-align: center;
+border:2px solid grey;
 
+`
+
+const Label = styled.label`
+color:#9f5ce9;
+font-size:2vw;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+`
+const InputSubmit = styled.input`
+
+width:15vw;
+font-size:40px;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+margin:10px;
+background-color: #9f5ce9;
+color:white;
+border:none;
+    &:hover{
+        text-decoration:underline;
+        transform:translateY(4px);
+        transition-duration: 0.2s;
+    }
+`
 
 const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
 
@@ -71,11 +107,11 @@ const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
             </Avatars>
 
             <FormContainer onSubmit = {handleSubmit}>
-                <input type="text" placeholder="Your Name" onChange = {handleNameChange} required />
+                <Input type="text" placeholder="Your Name" onChange = {handleNameChange} required />
 
-                <input type="number" placeholder="Your Age" onChange = {handleAgeChange} required />
+                <Input type="number" placeholder="Your Age" onChange = {handleAgeChange} required />
 
-                <label>Choose Your Avatar</label>
+                <Label>Choose Your Avatar</Label>
                 <AvatarSelect>
 
                     <label>
@@ -107,10 +143,8 @@ const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
                         <input type="radio" name="avatar" value="monster_6" onChange= {handleAvatarChange} />
                         <img src={monster_6} height="70" width="70" />
                     </label>
-
-                    <input type = "submit" value = "submit"/>
-
-                </AvatarSelect>
+                    </AvatarSelect>
+                    <InputSubmit type = "submit" value = "submit"/>
             </FormContainer>
         </>
     )

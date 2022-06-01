@@ -121,15 +121,15 @@ function App() {
               {profile ? <AppContainer countries={countries} savedCountries={savedCountries} selectedCountry={selectedCountry} addSavedCountry={addSavedCountry} updateSelectedCountry={updateSelectedCountry}  onHomeClick = {onHomeClick} fetchCountryObjects={fetchCountryObjects} profile={profile} savedCountryObjects={savedCountryObjects} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile}/>}
             />
             <Route path="/populations" element=
-              {savedCountryObjects ? <PopulationsContainer savedCountryObjects={savedCountryObjects} profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />}
+              {savedCountryObjects ? <PopulationsContainer onHomeClick = {onHomeClick}  savedCountryObjects={savedCountryObjects} profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} fetchCountryObjects = {fetchCountryObjects} />}
             />
 
             <Route path="/quiz" element={
-              <QuizContainer profile = {profile}/>
+              <QuizContainer profile = {profile} onHomeClick = {onHomeClick} />
             } />
 
             <Route path="/selectCountry" element={
-              profile ? <SelectCountry profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
+              profile ? <SelectCountry profile={profile} onHomeClick = {onHomeClick} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
 
               
               // <SelectCountry/>
