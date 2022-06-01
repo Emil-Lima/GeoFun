@@ -12,7 +12,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import QuizContainer from './containers/QuizContainer';
 import PopulationsContainer from './containers/PopulationsContainer';
+
 
 const Wrapper = styled.body`
   display: flex;
@@ -121,7 +123,7 @@ function App() {
             />
 
             <Route path="/quiz" element={
-              <h3>this is where the quiz goes</h3>
+              <QuizContainer profile = {profile}/>
             } />
 
             <Route path="/selectCountry" element={
