@@ -9,8 +9,8 @@ const NavContainer = styled.nav`
   align-items: center;
   padding-left: 3vw;
   padding-right: 3vw;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  ${'' /* padding-top: 1vh;
+  padding-bottom: 1vh; */}
   position: sticky;
   top: 0;
   background-color: white;
@@ -19,15 +19,11 @@ const NavContainer = styled.nav`
 
 `
 
-const ProfileInfo = styled.nav`
+const ProfileInfo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2vw;
-`
-
-const Logo = styled.div`
-
 `
 
 const Header = ({ profile, onHomeClick }) => {
@@ -38,9 +34,9 @@ const Header = ({ profile, onHomeClick }) => {
 
   return (
     <NavContainer>
-      <Logo>
+  
         <img onClick = {handleHomeClick} src={logo} height = "100"/>
-      </Logo>
+     
 
       <NavBar />
 
