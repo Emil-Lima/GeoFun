@@ -5,6 +5,7 @@ import ProfileContainer from './containers/ProfileContainer';
 import Footer from './components/Footer';
 import styled from 'styled-components';
 import { getUsers, postUser, patchUser } from './services/GeoFunServices';
+import SelectCountry from './containers/SelectCountry';
 import {
   BrowserRouter as Router,
   Routes,
@@ -124,6 +125,13 @@ function App() {
 
             <Route path="/quiz" element={
               <h3>this is where the quiz goes</h3>
+            } />
+
+            <Route path="/selectCountry" element={
+              profile ? <SelectCountry profile={profile} /> : <ProfileContainer allProfiles={allProfiles} addProfile={addProfile} selectProfile={selectProfile} />
+
+              
+              // <SelectCountry/>
             } />
 
           </Routes>
