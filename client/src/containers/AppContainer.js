@@ -24,12 +24,11 @@ const SelectedContainer = styled.div`
   max-width: 30vw;
 `
 
+const AppContainer = ({countries, savedCountries, savedCountryObjects, selectedCountry, addSavedCountry, updateSelectedCountry, fetchCountryObjects, profile, onHomeClick}) => {
 
-
-const AppContainer = ({countries, savedCountries, savedCountryObjects, selectedCountry, addSavedCountry, updateSelectedCountry, fetchCountryObjects, profile}) => {
   return (
     <div>
-      <Header profile = {profile}/>
+      <Header profile = {profile}onHomeClick={onHomeClick}/>
       <Map countries = {countries} addSavedCountry = {addSavedCountry} />
       
       <Details>

@@ -30,11 +30,16 @@ const Logo = styled.div`
 
 `
 
-const Header = ({ profile }) => {
+const Header = ({ profile, onHomeClick }) => {
+
+  const handleHomeClick= () => {
+    onHomeClick()
+  }
+
   return (
     <NavContainer>
       <Logo>
-        <img src={logo} height = "100"/>
+        <img onClick = {handleHomeClick} src={logo} height = "100"/>
       </Logo>
 
       <NavBar />
