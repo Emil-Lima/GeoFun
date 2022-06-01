@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import styled from 'styled-components';
 import GameStart from '../components/GameStart';
@@ -45,7 +45,7 @@ border:3px solid grey;
 padding:30px;
 `
 
-const QuizContainer = ({profile , onHomeClick}) => {
+const QuizContainer = ({ profile, onHomeClick }) => {
     const questions = [{
         questionText: 'What is the capital of France?',
         answerOptions: [
@@ -182,7 +182,7 @@ const QuizContainer = ({profile , onHomeClick}) => {
         ],
     },
     {
-        questionText: 'Which country has the smallest poulation?',
+        questionText: 'Which country has the smallest population?',
         answerOptions: [
             { answer: 'Licthenstein', isCorrect: true },
             { answer: 'Germany', isCorrect: false },
@@ -191,7 +191,7 @@ const QuizContainer = ({profile , onHomeClick}) => {
         ],
     },
     {
-        questionText: 'Which country has the largest poulation?',
+        questionText: 'Which country has the largest population?',
         answerOptions: [
             { answer: 'Italy', isCorrect: true },
             { answer: 'Spain', isCorrect: false },
@@ -237,49 +237,51 @@ const QuizContainer = ({profile , onHomeClick}) => {
     },
     ];
 
-    const [question,setQuestion] = useState(0)
-    const [score,setScore] = useState(0)
-    const [gameStarted,setGameStarted] = useState(false)
-    const [runningScore,setRunningScore] = useState (0)
+    const [question, setQuestion] = useState(0)
+    const [score, setScore] = useState(0)
+    const [gameStarted, setGameStarted] = useState(false)
+    const [runningScore, setRunningScore] = useState(0)
 
 
-    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0,10)
+    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 10)
 
     const checkAnswer = (event) => {
         const correct = event.target.value
-        const newScore = score +1
-        if (correct === "true"){
-         setScore(newScore) 
-            }
+        const newScore = score + 1
+        if (correct === "true") {
+            setScore(newScore)
+        }
         const next = question + 1
-        if (next< randomQuestions.length) {
-            setQuestion(next)}
-        else{
+        if (next < randomQuestions.length) {
+            setQuestion(next)
+        }
+        else {
             setRunningScore(score)
             startGame()
         }
-            //need to add else statement that sets score as running score and the sets the game to started -> score to 0
-        }
-        
-        const startGame = () =>{
+        //need to add else statement that sets score as running score and the sets the game to started -> score to 0
+    }
+
+    const startGame = () => {
         setQuestion(0)
         setGameStarted(!gameStarted)
-        setScore(0)}
-
-  return (
-
-    <>
-    <Header profile = {profile} onHomeClick = {onHomeClick}/>
-    {gameStarted === true?<Quiz>
-    <Question>{randomQuestions[question].questionText}</Question>
-    <Score> {score}/{randomQuestions.length} </Score>
-    <ButtonFlex>
-	{randomQuestions[question].answerOptions.map((answerOption, index) => (
-		<Button onClick = {checkAnswer} value = {answerOption.isCorrect}>{answerOption.answer}</Button>
-	))}
-    </ButtonFlex>
-    </Quiz>:<GameStart startGame = {startGame} runningScore = {runningScore}/>}
-    </>
-  )
+        setScore(0)
     }
+
+    return (
+
+        <>
+            <Header profile={profile} onHomeClick={onHomeClick} />
+            {gameStarted === true ? <Quiz>
+                <Question>{randomQuestions[question].questionText}</Question>
+                <Score> {score}/{randomQuestions.length} </Score>
+                <ButtonFlex>
+                    {randomQuestions[question].answerOptions.map((answerOption, index) => (
+                        <Button onClick={checkAnswer} value={answerOption.isCorrect}>{answerOption.answer}</Button>
+                    ))}
+                </ButtonFlex>
+            </Quiz> : <GameStart startGame={startGame} runningScore={runningScore} />}
+        </>
+    )
+}
 export default QuizContainer
