@@ -128,7 +128,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         ],
     },
     {
-        questionText: 'What is the Population of Ukraine?',
+        questionText: 'What is the population of Ukraine?',
         answerOptions: [
             { answer: '4134693', isCorrect: true },
             { answer: '413469', isCorrect: false },
@@ -146,7 +146,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         ],
     },
     {
-        questionText: 'WWhich of these  does not speak German?',
+        questionText: 'WWhich of these does not speak German?',
         answerOptions: [
             { answer: 'Germany', isCorrect: false },
             { answer: 'Belgium', isCorrect: false },
