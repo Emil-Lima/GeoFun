@@ -285,7 +285,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
                 <Score> {score}/{randomQuestions.length} </Score>
                 <ButtonFlex>
                     {randomQuestions[question].answerOptions.map((answerOption, index) => (
-                        <Button onClick={checkAnswer} value={answerOption.isCorrect}>{answerOption.answer}</Button>
+                        <Button onClick={checkAnswer} value={answerOption.isCorrect} key={index}>{answerOption.answer}</Button>
                     ))}
                 </ButtonFlex>
             </Quiz> 
