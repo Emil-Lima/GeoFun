@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, Popup } from "react-leaflet";
 import europeData from "../data/europe-info.json"
 import Header from "../components/Header"; 
 import styled from "styled-components";
@@ -69,8 +69,6 @@ const SelectCountry = ({profile, onHomeClick}) => {
     checkIfCorrect(userChoice);
   }
 
-  console.log()
-
   const checkIfCorrect = (userChoice) => {
     if (mysteryCountry === null) {
       setUserSelection(null);
@@ -91,8 +89,7 @@ const SelectCountry = ({profile, onHomeClick}) => {
     <Title>Guess the country!</Title>
     <Button onClick={playGame}>Play Game</Button>
     <QuestionContainer>
-    {mysteryCountry === null ? null : <p>Find {mysteryCountry} on the map!</p>}
-    {isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p>{badAnswer}</p>}
+      {mysteryCountry === null ? null : <p>Find {mysteryCountry} on the map!</p>}
     </QuestionContainer>
     </PlayGame>
     
@@ -109,6 +106,7 @@ const SelectCountry = ({profile, onHomeClick}) => {
           
           return (
             <GeoJSON attribution="&copy; credits due..." data={country} key={index} value={country.properties.name} eventHandlers={{click: getUserChoice}}>
+              <Popup>{isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p> {badAnswer}</p>}</Popup>
             </GeoJSON>)       
         })
       }
