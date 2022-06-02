@@ -88,7 +88,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
             { answer: 'Zagreb', isCorrect: true },
             { answer: 'Madrid', isCorrect: false },
             { answer: 'Paris', isCorrect: false },
-            { answer: 'Dofia', isCorrect: false },
+            { answer: 'Sofia', isCorrect: false },
         ],
     },
     {
@@ -160,7 +160,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
             { answer: 'Vilnius', isCorrect: true },
             { answer: 'Madrid', isCorrect: false },
             { answer: 'Paris', isCorrect: false },
-            { answer: 'Dofia', isCorrect: false },
+            { answer: 'Sofia', isCorrect: false },
         ],
     },
     {
