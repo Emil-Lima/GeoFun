@@ -16,7 +16,7 @@ import QuizContainer from './containers/QuizContainer';
 import PopulationsContainer from './containers/PopulationsContainer';
 
 
-const Wrapper = styled.body`
+const Wrapper = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
