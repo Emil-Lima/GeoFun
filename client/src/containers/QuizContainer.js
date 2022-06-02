@@ -243,7 +243,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
     const [runningScore, setRunningScore] = useState(0)
 
 
-    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 10)
+    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 5)
 
     const checkAnswer = (event) => {
         const correct = event.target.value
