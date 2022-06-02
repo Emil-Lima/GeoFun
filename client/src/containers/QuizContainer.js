@@ -275,8 +275,6 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         setScore(0)
     }
 
-    console.log(randomQuestions)
-
     return (
 
         <>
