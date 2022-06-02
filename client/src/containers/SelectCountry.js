@@ -39,7 +39,7 @@ color: #076d5d;
 `
 
 const P = styled.p`
-/* font-size: 150%; */
+font-size: 150%;
 `
 
 const SelectCountry = ({profile, onHomeClick}) => {
