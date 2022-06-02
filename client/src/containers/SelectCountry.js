@@ -38,6 +38,10 @@ font-family:Verdana, Geneva, Tahoma, sans-serif;
 color: #076d5d;
 `
 
+const P = styled.p`
+/* font-size: 150%; */
+`
+
 const SelectCountry = ({profile, onHomeClick}) => {
 
   const [mysteryCountry, setMysteryCountry] = useState(null);
@@ -106,7 +110,7 @@ const SelectCountry = ({profile, onHomeClick}) => {
           
           return (
             <GeoJSON attribution="&copy; credits due..." data={country} key={index} value={country.properties.name} eventHandlers={{click: getUserChoice}}>
-              <Popup>{isCorrectAnswer === null ? null : isCorrectAnswer === true ? <p>{goodAnswer}</p> : <p> {badAnswer}</p>}</Popup>
+              <Popup>{isCorrectAnswer === null ? null : isCorrectAnswer === true ? <P>{goodAnswer}</P> : <P> {badAnswer}</P>}</Popup>
             </GeoJSON>)       
         })
       }
