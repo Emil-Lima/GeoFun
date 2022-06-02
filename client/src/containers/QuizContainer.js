@@ -241,9 +241,17 @@ const QuizContainer = ({ profile, onHomeClick }) => {
     const [score, setScore] = useState(0)
     const [gameStarted, setGameStarted] = useState(false)
     const [runningScore, setRunningScore] = useState(0)
+    const [randomQuestions, setRandomQuestions] = useState([]);
 
+    const getRandomQuestions = () => {
+        return questions.sort(() => Math.random() - 0.5).slice(0, 5);
+    }
 
-    const randomQuestions = questions.sort(() => Math.random() - 0.5).slice(0, 5)
+    useEffect(() => {
+        if (gameStarted === false) {
+            setRandomQuestions(getRandomQuestions)
+        }
+    }, [gameStarted])
 
     const checkAnswer = (event) => {
         const correct = event.target.value
@@ -259,7 +267,6 @@ const QuizContainer = ({ profile, onHomeClick }) => {
             setRunningScore(score)
             startGame()
         }
-        //need to add else statement that sets score as running score and the sets the game to started -> score to 0
     }
 
     const startGame = () => {
@@ -268,11 +275,14 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         setScore(0)
     }
 
+    console.log(randomQuestions)
+
     return (
 
         <>
             <Header profile={profile} onHomeClick={onHomeClick} />
-            {gameStarted === true ? <Quiz>
+            {gameStarted === true && randomQuestions != [] ? 
+            <Quiz>
                 <Question>{randomQuestions[question].questionText}</Question>
                 <Score> {score}/{randomQuestions.length} </Score>
                 <ButtonFlex>
@@ -280,7 +290,8 @@ const QuizContainer = ({ profile, onHomeClick }) => {
                         <Button onClick={checkAnswer} value={answerOption.isCorrect}>{answerOption.answer}</Button>
                     ))}
                 </ButtonFlex>
-            </Quiz> : <GameStart startGame={startGame} runningScore={runningScore} />}
+            </Quiz> 
+            : <GameStart startGame={startGame} runningScore={runningScore} />}
         </>
     )
 }

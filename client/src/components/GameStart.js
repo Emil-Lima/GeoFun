@@ -39,6 +39,7 @@ const GameStart = ({startGame, runningScore}) => {
     const onStartClick = () => {
         startGame()
     }
+    
   return (
     <QuizStartBox>
     <Title> Take our quiz and see how many points you can get!</Title>
