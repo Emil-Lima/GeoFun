@@ -60,7 +60,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         answerOptions: [
             { answer: 'Poland', isCorrect: false },
             { answer: 'Croatia', isCorrect: false },
-            { answer: 'United Kingdon', isCorrect: true },
+            { answer: 'United Kingdom', isCorrect: true },
             { answer: 'France', isCorrect: false },
         ],
     },
@@ -128,12 +128,12 @@ const QuizContainer = ({ profile, onHomeClick }) => {
         ],
     },
     {
-        questionText: 'What is the population of Ukraine?',
+        questionText: 'What is the approximate population of Spain?',
         answerOptions: [
-            { answer: '4134693', isCorrect: true },
-            { answer: '413469', isCorrect: false },
-            { answer: '5134693', isCorrect: false },
-            { answer: '513469', isCorrect: false },
+            { answer: '40,000,000', isCorrect: true },
+            { answer: '60,000,000', isCorrect: false },
+            { answer: '50,000,000', isCorrect: false },
+            { answer: '30,000,000', isCorrect: false },
         ],
     },
     {
