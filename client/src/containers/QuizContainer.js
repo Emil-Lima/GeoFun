@@ -246,7 +246,9 @@ const QuizContainer = ({ profile, onHomeClick }) => {
   const [randomQuestions, setRandomQuestions] = useState([]);
 
   const getRandomQuestions = () => {
-    return questions.sort(() => Math.random() - 0.5).slice(0, numberOfQuestions);
+    return questions
+      .sort(() => Math.random() - 0.5)
+      .slice(0, numberOfQuestions);
   };
 
   useEffect(() => {
@@ -303,7 +305,11 @@ const QuizContainer = ({ profile, onHomeClick }) => {
           </ButtonFlex>
         </Quiz>
       ) : (
-        <GameStart startGame={startGame} runningScore={runningScore} numberOfQuestions={numberOfQuestions}/>
+        <GameStart
+          startGame={startGame}
+          runningScore={runningScore}
+          numberOfQuestions={numberOfQuestions}
+        />
       )}
     </>
   );
