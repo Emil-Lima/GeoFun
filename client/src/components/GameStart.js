@@ -44,9 +44,9 @@ const GameStart = ({ startGame, runningScore, numberOfQuestions }) => {
       {runningScore === numberOfQuestions ? (
         <P>
           Your last score was {runningScore}. You got all {numberOfQuestions}{" "}
-          right! Can you do it again?
+          questions right! Can you do it again?
         </P>
-      ) : numberOfQuestions > 0 ? (
+      ) : runningScore > 0 ? (
         <P>Your last score was {runningScore}. Can you beat it?</P>
       ) : (
         <P>You can do it!</P>
