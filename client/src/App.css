@@ -42,18 +42,17 @@
   width: 100vw;
 }
 
-.MapContainer { 
+.MapContainer {
   height: 70vh;
   width: 70vw;
   margin: auto;
   margin-top: 10vh;
   border-radius: 40px;
-  border: 10px solid #7448d0 ;
-  }
-
+  border: 10px solid #7448d0;
+}
 
 /* HIDE RADIO */
-[type=radio] { 
+[type="radio"] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -61,36 +60,35 @@
 }
 
 /* IMAGE STYLES */
-[type=radio] + img {
+[type="radio"] + img {
   cursor: pointer;
 }
 
 /* CHECKED STYLES */
-[type=radio]:checked + img {
+[type="radio"]:checked + img {
   outline: 2px solid #ffe513;
   border-radius: 5px;
 }
 
 .population-graph {
-  width:40vw;
+  width: 40vw;
   height: 65vh;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-image: url('./assets/bg.png');
+  background-image: url("./assets/bg.png");
   background-repeat: no-repeat;
-  background-size:100vw;
+  background-size: 100vw;
   background-position: center;
   background-attachment: fixed;
-  
 }
-.MapContainerGame { 
+.MapContainerGame {
   height: 70vh;
   width: 70vw;
   margin: auto;
   margin-top: 2vh;
   border-radius: 40px;
-  border: 20px solid #7448d0 ;
-  }
+  border: 20px solid #7448d0;
+}
