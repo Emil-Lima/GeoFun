@@ -303,7 +303,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
           </ButtonFlex>
         </Quiz>
       ) : (
-        <GameStart startGame={startGame} runningScore={runningScore} />
+        <GameStart startGame={startGame} runningScore={runningScore} numberOfQuestions={numberOfQuestions}/>
       )}
     </>
   );
