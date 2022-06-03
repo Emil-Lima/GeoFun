@@ -253,15 +253,17 @@ const QuizContainer = ({ profile, onHomeClick }) => {
 
   const checkAnswer = (event) => {
     const correct = event.target.value;
-    const newScore = score + 1;
+    let newScore = score;
     if (correct === "true") {
+      newScore++;
       setScore(newScore);
     }
     const next = question + 1;
     if (next < randomQuestions.length) {
       setQuestion(next);
     } else {
-      setRunningScore(score);
+      // Have to use newScore here because the score state does not update fast enough
+      setRunningScore(newScore);
       startGame();
     }
   };
