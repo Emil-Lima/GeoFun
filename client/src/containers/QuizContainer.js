@@ -236,6 +236,8 @@ const questions = [
   },
 ];
 
+const numberOfQuestions = 5;
+
 const QuizContainer = ({ profile, onHomeClick }) => {
   const [question, setQuestion] = useState(0);
   const [score, setScore] = useState(0);
@@ -244,7 +246,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
   const [randomQuestions, setRandomQuestions] = useState([]);
 
   const getRandomQuestions = () => {
-    return questions.sort(() => Math.random() - 0.5).slice(0, 5);
+    return questions.sort(() => Math.random() - 0.5).slice(0, numberOfQuestions);
   };
 
   useEffect(() => {
@@ -261,7 +263,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
       setScore(newScore);
     }
     const next = question + 1;
-    if (next < randomQuestions.length) {
+    if (next < numberOfQuestions) {
       setQuestion(next);
     } else {
       // Have to use newScore here because the score state does not update fast enough
@@ -284,7 +286,7 @@ const QuizContainer = ({ profile, onHomeClick }) => {
           <Question>{randomQuestions[question].questionText}</Question>
           <Score>
             {" "}
-            {score}/{randomQuestions.length}{" "}
+            {score}/{numberOfQuestions}{" "}
           </Score>
           <ButtonFlex>
             {randomQuestions[question].answerOptions.map(
