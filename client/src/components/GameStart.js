@@ -33,7 +33,7 @@ const P = styled.p`
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
 
-const GameStart = ({ startGame, runningScore }) => {
+const GameStart = ({ startGame, runningScore, numberOfQuestions }) => {
   const onStartClick = () => {
     startGame();
   };
@@ -41,7 +41,12 @@ const GameStart = ({ startGame, runningScore }) => {
   return (
     <QuizStartBox>
       <Title> Take our quiz and see how many points you can get!</Title>
-      {runningScore > 0 ? (
+      {runningScore === numberOfQuestions ? (
+        <P>
+          Your last score was {runningScore}. You got all {numberOfQuestions}{" "}
+          right! Can you do it again?
+        </P>
+      ) : numberOfQuestions > 0 ? (
         <P>Your last score was {runningScore}. Can you beat it?</P>
       ) : (
         <P>You can do it!</P>
