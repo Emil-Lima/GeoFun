@@ -27,6 +27,8 @@ const Button = styled.button`
   background-color: #008aaa;
   color: white;
   border: none;
+  cursor: pointer;
+
   &:hover {
     text-decoration: underline;
     transform: translateY(4px);
