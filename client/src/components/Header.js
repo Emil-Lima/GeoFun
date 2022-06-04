@@ -9,10 +9,6 @@ const NavContainer = styled.nav`
   align-items: center;
   padding-left: 3vw;
   padding-right: 3vw;
-  ${
-    "" /* padding-top: 1vh;
-  padding-bottom: 1vh; */
-  }
   position: sticky;
   top: 0;
   background-color: white;
@@ -27,6 +23,10 @@ const ProfileInfo = styled.div`
   gap: 2vw;
 `;
 
+const LogoApp = styled.img`
+  cursor: pointer;
+`
+
 const Header = ({ profile, onHomeClick }) => {
   const handleHomeClick = () => {
     onHomeClick();
@@ -34,7 +34,7 @@ const Header = ({ profile, onHomeClick }) => {
 
   return (
     <NavContainer>
-      <img onClick={handleHomeClick} src={logo} height="100" />
+      <LogoApp onClick={handleHomeClick} src={logo} height="100" />
 
       <NavBar />
 
