@@ -3,7 +3,8 @@ import styled from "styled-components";
 import github_logo from "../assets/github_logo.png";
 
 const DevsContainer = styled.footer`
-  min-height: 15vh;
+  min-height: 10vh;
+  max-height: 12vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: white;
@@ -16,7 +17,7 @@ const Logo = styled.img`
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 6vw;
+  width: 4vw;
 `;
 
 const Link = styled.a`
