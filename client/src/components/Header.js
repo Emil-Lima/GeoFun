@@ -5,7 +5,7 @@ import logo from "../assets/cbbc logo.png";
 
 const NavContainer = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: stretch;
   align-items: center;
   padding-left: 3vw;
   padding-right: 3vw;
@@ -13,7 +13,8 @@ const NavContainer = styled.nav`
   top: 0;
   background-color: white;
   box-shadow: 0px 5px 10px rgba(140, 140, 140, 0.79);
-  z-index: 1001;
+  z-index: 1;
+  height: 12vh;
 `;
 
 const ProfileInfo = styled.div`
@@ -21,11 +22,18 @@ const ProfileInfo = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2vw;
+  width: 30%;
 `;
 
 const LogoApp = styled.img`
+  max-height: 12vh;
+  width: auto;
   cursor: pointer;
 `;
+
+const ProfileText = styled.h3`
+  font-size: 1rem;
+`
 
 const Header = ({ profile, onHomeClick }) => {
   const handleHomeClick = () => {
@@ -39,7 +47,7 @@ const Header = ({ profile, onHomeClick }) => {
       <NavBar />
 
       <ProfileInfo>
-        <h2>Welcome, {profile.name}!</h2>
+        <ProfileText>Welcome, {profile.name}!</ProfileText>
         <img src={`../img/${profile.avatar}.png`} height="75" />
       </ProfileInfo>
     </NavContainer>

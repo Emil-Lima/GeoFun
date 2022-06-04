@@ -10,6 +10,11 @@ import {
   faMap,
 } from "@fortawesome/free-solid-svg-icons";
 
+const Bar = styled.nav`
+  height: 100%;
+  width: 100%;
+`
+
 const Icon = styled(FontAwesomeIcon)`
   display: block;
   margin: auto;
@@ -21,13 +26,15 @@ const UL = styled.ul`
   flex-direction: row;
   justify-content: space-around;
   padding: 0px;
-  width: 40vw;
+  width: 100%;
   height: 100%;
   margin: 0;
 `;
+
 const LI = styled.li`
   list-style: none;
   height: 100%;
+  width: 100%;
 `;
 
 const Button = styled.button`
@@ -40,9 +47,12 @@ const Button = styled.button`
   font-weight: bold;
   text-decoration: none;
   text-shadow: 0px 1px 0px #7d29c2;
-  width: 15vw;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   border: none;
+  padding: 0;
+  padding-bottom: 5%;
+
 
   &:hover {
     background-color: #ededed;
@@ -54,44 +64,49 @@ const Button = styled.button`
   }
 `;
 
+const LinkText = styled.p`
+  color: #551b8c;
+  margin-bottom: 1%;
+`
+
 const NavBar = () => {
   return (
-    <nav>
+    <Bar>
       <UL>
         <LI>
-          <Button className="button-yellow">
-            <Link style={{ textDecoration: "none" }} to="/">
-              Map
-            </Link>
-            <Icon icon={faMap} style={{ color: "#f73500" }} />
-          </Button>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <Button>
+              <LinkText>Map</LinkText>
+              <Icon icon={faMap} style={{ color: "#f73500" }} />
+            </Button>
+          </Link>
         </LI>
         <LI>
-          <Button>
-            <Link style={{ textDecoration: "none" }} to="/populations">
-              Populations
-            </Link>
-            <Icon icon={faChartPie} style={{ color: "#008aaa" }} />
-          </Button>
+          <Link style={{ textDecoration: "none" }} to="/populations">
+            <Button>
+              <LinkText>Population</LinkText>
+              <Icon icon={faChartPie} style={{ color: "#008aaa" }} />
+            </Button>
+          </Link>
         </LI>
         <LI>
-          <Button>
             <Link style={{ textDecoration: "none" }} to="/quiz">
-              Quiz
-            </Link>
+          <Button>
+              <LinkText>Quiz</LinkText>
             <Icon icon={faQuestion} style={{ color: "#a0e600" }} />
           </Button>
+            </Link>
         </LI>
         <LI>
-          <Button>
             <Link style={{ textDecoration: "none" }} to="/selectCountry">
-              Game
-            </Link>
+          <Button>
+              <LinkText>Game</LinkText>
             <Icon icon={faGamepad} style={{ color: "#d51c6f" }} />
           </Button>
+            </Link>
         </LI>
       </UL>
-    </nav>
+    </Bar>
   );
 };
 
