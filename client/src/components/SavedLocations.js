@@ -22,6 +22,7 @@ const FlagContainer = styled.div`
   padding: 0;
   max-width: 30%;
   text-align: center;
+  cursor: pointer;
 `;
 
 const Flag = styled.img`
@@ -32,10 +33,8 @@ const Flag = styled.img`
 `;
 
 const SavedLocations = ({
-  savedCountries,
   savedCountryObjects,
   updateSelectedCountry,
-  fetchCountryObjects,
   profile,
 }) => {
   const savedCountryNodes = savedCountryObjects.map((country) => {
@@ -52,12 +51,10 @@ const SavedLocations = ({
   });
 
   return (
-    <>
-      <div>
-        <Heading>{profile.name}'s saved locations</Heading>
-        <SavedFlags>{savedCountryNodes}</SavedFlags>
-      </div>
-    </>
+    <div>
+      <Heading>{profile.name}'s saved locations</Heading>
+      <SavedFlags>{savedCountryNodes}</SavedFlags>
+    </div>
   );
 };
 
