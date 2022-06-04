@@ -10,6 +10,7 @@ const Button = styled.button`
   color: white;
   border: none;
   padding: 30px;
+  cursor: pointer;
   &:hover {
     text-decoration: underline;
     transform: translateY(4px);
