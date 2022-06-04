@@ -6,12 +6,14 @@ const ProfileContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 
   &:hover {
     transform: scale(1.2);
     transition-duration: 0.5s;
   }
 `;
+
 const H3 = styled.h3`
   text-align: center;
   color: #3a2279;
