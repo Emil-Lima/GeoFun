@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const ProfileContainer = styled.div`
+const ProfileInfo = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,6 +12,11 @@ const ProfileContainer = styled.div`
     transform: scale(1.2);
     transition-duration: 0.5s;
   }
+`;
+
+const ProfileAvatar = styled.img`
+  height: 14vh;
+  width: auto;
 `;
 
 const H3 = styled.h3`
@@ -28,14 +33,13 @@ const Profile = ({ profile, selectProfile }) => {
   };
 
   return (
-    <ProfileContainer>
-      <img
+    <ProfileInfo>
+      <ProfileAvatar
         src={`../img/${profile.avatar}.png`}
-        width="200"
         onClick={handleProfileSelect}
       />
       <H3>{profile.name}</H3>
-    </ProfileContainer>
+    </ProfileInfo>
   );
 };
 

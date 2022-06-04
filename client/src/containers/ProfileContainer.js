@@ -8,8 +8,10 @@ import monster_4 from "../assets/monster_4.png";
 import monster_5 from "../assets/monster_5.png";
 import monster_6 from "../assets/monster_6.png";
 
-const Avatars = styled.div`
+const ExistingUsers = styled.div`
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2vw;
   margin-top: 5vw;
@@ -44,6 +46,7 @@ const Label = styled.label`
   font-size: 2vw;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 `;
+
 const InputSubmit = styled.input`
   width: 15vw;
   font-size: 40px;
@@ -59,6 +62,11 @@ const InputSubmit = styled.input`
     transform: translateY(4px);
     transition-duration: 0.2s;
   }
+`;
+
+const H2 = styled.h2`
+  text-align: center;
+  color: #d0541d;
 `;
 
 const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
@@ -92,8 +100,9 @@ const ProfileContainer = ({ allProfiles, addProfile, selectProfile }) => {
 
   return (
     <>
-      <Avatars>{profileNodes}</Avatars>
+      <ExistingUsers>{profileNodes}</ExistingUsers>
 
+      <H2>Create your own profile:</H2>
       <FormContainer onSubmit={handleSubmit}>
         <Input
           type="text"
