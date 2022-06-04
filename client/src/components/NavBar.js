@@ -13,7 +13,7 @@ import {
 const Bar = styled.nav`
   height: 100%;
   width: 100%;
-`
+`;
 
 const Icon = styled(FontAwesomeIcon)`
   display: block;
@@ -53,7 +53,6 @@ const Button = styled.button`
   padding: 0;
   padding-bottom: 5%;
 
-
   &:hover {
     background-color: #ededed;
     border-bottom: 4px solid #29c5fe;
@@ -67,7 +66,7 @@ const Button = styled.button`
 const LinkText = styled.p`
   color: #551b8c;
   margin-bottom: 1%;
-`
+`;
 
 const NavBar = () => {
   return (
@@ -90,20 +89,20 @@ const NavBar = () => {
           </Link>
         </LI>
         <LI>
-            <Link style={{ textDecoration: "none" }} to="/quiz">
-          <Button>
+          <Link style={{ textDecoration: "none" }} to="/quiz">
+            <Button>
               <LinkText>Quiz</LinkText>
-            <Icon icon={faQuestion} style={{ color: "#a0e600" }} />
-          </Button>
-            </Link>
+              <Icon icon={faQuestion} style={{ color: "#a0e600" }} />
+            </Button>
+          </Link>
         </LI>
         <LI>
-            <Link style={{ textDecoration: "none" }} to="/selectCountry">
-          <Button>
+          <Link style={{ textDecoration: "none" }} to="/selectCountry">
+            <Button>
               <LinkText>Game</LinkText>
-            <Icon icon={faGamepad} style={{ color: "#d51c6f" }} />
-          </Button>
-            </Link>
+              <Icon icon={faGamepad} style={{ color: "#d51c6f" }} />
+            </Button>
+          </Link>
         </LI>
       </UL>
     </Bar>

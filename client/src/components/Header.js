@@ -33,7 +33,7 @@ const LogoApp = styled.img`
 
 const ProfileText = styled.h3`
   font-size: 1rem;
-`
+`;
 
 const Header = ({ profile, onHomeClick }) => {
   const handleHomeClick = () => {
