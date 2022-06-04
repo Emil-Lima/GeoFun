@@ -53,7 +53,7 @@ const InputSubmit = styled.input`
   color: white;
   border: none;
   cursor: pointer;
-  
+
   &:hover {
     text-decoration: underline;
     transform: translateY(4px);

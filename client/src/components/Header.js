@@ -25,7 +25,7 @@ const ProfileInfo = styled.div`
 
 const LogoApp = styled.img`
   cursor: pointer;
-`
+`;
 
 const Header = ({ profile, onHomeClick }) => {
   const handleHomeClick = () => {
