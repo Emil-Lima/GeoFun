@@ -13,7 +13,8 @@ const NavContainer = styled.nav`
   top: 0;
   background-color: white;
   box-shadow: 0px 5px 10px rgba(140, 140, 140, 0.79);
-  z-index: 1;
+  /* value of z-index needed to deal with the map */
+  z-index: 1001;
   height: 12vh;
 `;
 
