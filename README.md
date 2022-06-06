@@ -13,6 +13,7 @@
 + Now, to install all the modules for the client run ```npm i```
 + Once the download is completed, run ```cd ../server```
 + Finally, to install the modules for the server run ```npm i```
++ _Optional_: To get some pre-created users in the database run ```npm run seeds``` after the last command.
 
 ## Tech stack
 ### Core technologies:
@@ -41,7 +42,7 @@
 ### Other resources:
 <a href="https://developers.google.com/chart">Google Charts</a>
 
-Developed by:
+### Developed by:
 
 <div style="margin-top: 5vh">
     <a href="https://github.com/JazzRose"><img src="https://avatars.githubusercontent.com/u/101360549?v=4" style="border-radius:50%; vertical-align:middle; width:6vh; margin-right: 2vw"></a>
